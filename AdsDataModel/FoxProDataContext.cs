@@ -19,9 +19,12 @@ namespace AdsDataModel {
 		private const string TableType = "CDX";
 		private const string ServerType = "REMOTE";
 		//private const string DataSource = @"\\adsserver:2001\u\sys\data";
+
 		private const string DataSource = @"\\192.168.40.46:2001\u\sys\data";
+		//private const string DataSource = @"C:\SQL2019\FoxProData";
 
 		public readonly AdsConnection Conn = new AdsConnection($@"Data Source={DataSource}; TableType={TableType}; ServerType={ServerType}; TrimTrailingSpaces={TrimTrailingSpaces}; LockMode={LockMode}; DbfsUseNulls={DbfsUseNulls}; ReadOnly={ReadOnly};");
+		//public readonly AdsConnection Conn = new AdsConnection($@"Data Source={DataSource}; TableType={TableType}; ServerType=REMOTE; TrimTrailingSpaces={TrimTrailingSpaces}; LockMode={LockMode}; DbfsUseNulls={DbfsUseNulls}; ReadOnly={ReadOnly};");
 
 		public IList<AgencyParent> AgencyParents;
 

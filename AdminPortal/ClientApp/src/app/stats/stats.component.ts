@@ -1,13 +1,414 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-stats-component',
-  templateUrl: './stats.component.html'
+	selector: 'app-stats-component',
+	templateUrl: './stats.component.html'
 })
-export class StatsComponent {
-  public currentCount = 0;
 
-  public incrementCounter() {
-    this.currentCount++;
-  }
+export class StatsComponent {
+
+	item: Bs_Do_W;
+	CurrPrev = 'Current';
+	ButtonLabelCurrPrev = 'Previous';
+
+	constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+		http.get<Bs_Do_W>(baseUrl + 'data').subscribe(result => {
+			this.item = result;
+		}, error => console.error(error));
+	}
+
+	SwitchCurrPrev() {
+		if (this.CurrPrev === 'Current') {
+			this.CurrPrev = 'Previous';
+			this.ButtonLabelCurrPrev = 'Current';
+		} else {
+			this.CurrPrev = 'Current';
+			this.ButtonLabelCurrPrev = 'Previous';
+		}
+	}
+
+}
+
+interface Bs_Do_W extends Bs_Do {
+}
+
+interface Bs_Do_I extends Bs_Do {
+}
+
+interface Bs_Do_O extends Bs_Do {
+}
+
+interface Bs_Do {
+	preqfix: number;
+	curqfix: number;
+	presunqd: number;
+	premonqd: number;
+	pretueqd: number;
+	prewedqd: number;
+	prethuqd: number;
+	prefriqd: number;
+	presatqd: number;
+	pretotqd: number;
+	cursunqd: number;
+	curmonqd: number;
+	curtueqd: number;
+	curwedqd: number;
+	curthuqd: number;
+	curfriqd: number;
+	cursatqd: number;
+	curtotqd: number;
+	preofix: number;
+	curofix: number;
+	presunod: number;
+	premonod: number;
+	pretueod: number;
+	prewedod: number;
+	prethuod: number;
+	prefriod: number;
+	presatod: number;
+	pretotod: number;
+	cursunod: number;
+	curmonod: number;
+	curtueod: number;
+	curwedod: number;
+	curthuod: number;
+	curfriod: number;
+	cursatod: number;
+	curtotod: number;
+	prepfix: number;
+	curpfix: number;
+	presunpd: number;
+	premonpd: number;
+	pretuepd: number;
+	prewedpd: number;
+	prethupd: number;
+	prefripd: number;
+	presatpd: number;
+	pretotpd: number;
+	cursunpd: number;
+	curmonpd: number;
+	curtuepd: number;
+	curwedpd: number;
+	curthupd: number;
+	curfripd: number;
+	cursatpd: number;
+	curtotpd: number;
+	presunpq: number;
+	premonpq: number;
+	pretuepq: number;
+	prewedpq: number;
+	prethupq: number;
+	prefripq: number;
+	presatpq: number;
+	pretotpq: number;
+	cursunpq: number;
+	curmonpq: number;
+	curtuepq: number;
+	curwedpq: number;
+	curthupq: number;
+	curfripq: number;
+	cursatpq: number;
+	curtotpq: number;
+	presunpm: number;
+	premonpm: number;
+	pretuepm: number;
+	prewedpm: number;
+	prethupm: number;
+	prefripm: number;
+	presatpm: number;
+	pretotpm: number;
+	cursunpm: number;
+	curmonpm: number;
+	curtuepm: number;
+	curwedpm: number;
+	curthupm: number;
+	curfripm: number;
+	cursatpm: number;
+	curtotpm: number;
+	preinfpd: number;
+	preinfpq: number;
+	preinfpm: number;
+	curinfpd: number;
+	curinfpq: number;
+	curinfpm: number;
+	presfix: number;
+	cursfix: number;
+	presunsd: number;
+	premonsd: number;
+	pretuesd: number;
+	prewedsd: number;
+	prethusd: number;
+	prefrisd: number;
+	presatsd: number;
+	pretotsd: number;
+	cursunsd: number;
+	curmonsd: number;
+	curtuesd: number;
+	curwedsd: number;
+	curthusd: number;
+	curfrisd: number;
+	cursatsd: number;
+	curtotsd: number;
+	cursd: number;
+	cursc: number;
+	presd: number;
+	presc: number;
+	pre_rts: number;
+	cur_rts: number;
+	pre_rtsq: number;
+	cur_rtsq: number;
+	pre_rtsr: number;
+	pre_rtsrq: number;
+	cur_rtsr: number;
+	cur_rtsrq: number;
+	presunsq: number;
+	premonsq: number;
+	pretuesq: number;
+	prewedsq: number;
+	prethusq: number;
+	prefrisq: number;
+	presatsq: number;
+	pretotsq: number;
+	cursunsq: number;
+	curmonsq: number;
+	curtuesq: number;
+	curwedsq: number;
+	curthusq: number;
+	curfrisq: number;
+	cursatsq: number;
+	curtotsq: number;
+	preosd: number;
+	curosd: number;
+}
+
+interface Bs_DoW {
+	preqfix_w: number;
+	curqfix_w: number;
+	presunqd_w: number;
+	premonqd_w: number;
+	pretueqd_w: number;
+	prewedqd_w: number;
+	prethuqd_w: number;
+	prefriqd_w: number;
+	presatqd_w: number;
+	pretotqd_w: number;
+	cursunqd_w: number;
+	curmonqd_w: number;
+	curtueqd_w: number;
+	curwedqd_w: number;
+	curthuqd_w: number;
+	curfriqd_w: number;
+	cursatqd_w: number;
+	curtotqd_w: number;
+	preofix_w: number;
+	curofix_w: number;
+	presunod_w: number;
+	premonod_w: number;
+	pretueod_w: number;
+	prewedod_w: number;
+	prethuod_w: number;
+	prefriod_w: number;
+	presatod_w: number;
+	pretotod_w: number;
+	cursunod_w: number;
+	curmonod_w: number;
+	curtueod_w: number;
+	curwedod_w: number;
+	curthuod_w: number;
+	curfriod_w: number;
+	cursatod_w: number;
+	curtotod_w: number;
+	prepfix_w: number;
+	curpfix_w: number;
+	presunpd_w: number;
+	premonpd_w: number;
+	pretuepd_w: number;
+	prewedpd_w: number;
+	prethupd_w: number;
+	prefripd_w: number;
+	presatpd_w: number;
+	pretotpd_w: number;
+	cursunpd_w: number;
+	curmonpd_w: number;
+	curtuepd_w: number;
+	curwedpd_w: number;
+	curthupd_w: number;
+	curfripd_w: number;
+	cursatpd_w: number;
+	curtotpd_w: number;
+	presunpq_w: number;
+	premonpq_w: number;
+	pretuepq_w: number;
+	prewedpq_w: number;
+	prethupq_w: number;
+	prefripq_w: number;
+	presatpq_w: number;
+	pretotpq_w: number;
+	cursunpq_w: number;
+	curmonpq_w: number;
+	curtuepq_w: number;
+	curwedpq_w: number;
+	curthupq_w: number;
+	curfripq_w: number;
+	cursatpq_w: number;
+	curtotpq_w: number;
+	presunpm_w: number;
+	premonpm_w: number;
+	pretuepm_w: number;
+	prewedpm_w: number;
+	prethupm_w: number;
+	prefripm_w: number;
+	presatpm_w: number;
+	pretotpm_w: number;
+	cursunpm_w: number;
+	curmonpm_w: number;
+	curtuepm_w: number;
+	curwedpm_w: number;
+	curthupm_w: number;
+	curfripm_w: number;
+	cursatpm_w: number;
+	curtotpm_w: number;
+	preinfpd_w: number;
+	preinfpq_w: number;
+	preinfpm_w: number;
+	curinfpd_w: number;
+	curinfpq_w: number;
+	curinfpm_w: number;
+	presfix_w: number;
+	cursfix_w: number;
+	presunsd_w: number;
+	premonsd_w: number;
+	pretuesd_w: number;
+	prewedsd_w: number;
+	prethusd_w: number;
+	prefrisd_w: number;
+	presatsd_w: number;
+	pretotsd_w: number;
+	cursunsd_w: number;
+	curmonsd_w: number;
+	curtuesd_w: number;
+	curwedsd_w: number;
+	curthusd_w: number;
+	curfrisd_w: number;
+	cursatsd_w: number;
+	curtotsd_w: number;
+	cursd_w: number;
+	cursc_w: number;
+	presd_w: number;
+	presc_w: number;
+	pre_rts: number;
+	cur_rts: number;
+	pre_rtsq: number;
+	cur_rtsq: number;
+	pre_rtsr: number;
+	pre_rtsrq: number;
+	cur_rtsr: number;
+	cur_rtsrq: number;
+	presunsq_w: number;
+	premonsq_w: number;
+	pretuesq_w: number;
+	prewedsq_w: number;
+	prethusq_w: number;
+	prefrisq_w: number;
+	presatsq_w: number;
+	pretotsq_w: number;
+	cursunsq_w: number;
+	curmonsq_w: number;
+	curtuesq_w: number;
+	curwedsq_w: number;
+	curthusq_w: number;
+	curfrisq_w: number;
+	cursatsq_w: number;
+	curtotsq_w: number;
+	preosd_w: number;
+	curosd_w: number;
+}
+
+interface Bs_Mis {
+	calcdate: Date;
+	calctime: string;
+	calcend: string;
+	me_cur: Date;
+	me_las: Date;
+	me_pre: Date;
+	me_start: Date;
+	pre_sun: Date;
+	pre_mon: Date;
+	pre_tue: Date;
+	pre_wed: Date;
+	pre_thu: Date;
+	pre_fri: Date;
+	pre_sat: Date;
+	cur_sun: Date;
+	cur_mon: Date;
+	cur_tue: Date;
+	cur_wed: Date;
+	cur_thu: Date;
+	cur_fri: Date;
+	cur_sat: Date;
+	ho_l60_cnt: number;
+	ho_l60_fix: number;
+	ho_l60_dol: number;
+	ho_g60_cnt: number;
+	ho_g60_fix: number;
+	ho_g60_dol: number;
+	inv_r_dol: number;
+	inv_r_cnt: number;
+	inv_w_dol: number;
+	inv_w_cnt: number;
+	inv_f_dol: number;
+	inv_f_cnt: number;
+	inv_q_dol: number;
+	inv_q_cnt: number;
+	invs_r_dol: number;
+	invs_r_cnt: number;
+	invs_w_dol: number;
+	invs_w_cnt: number;
+	invs_f_dol: number;
+	invs_f_cnt: number;
+	invs_q_dol: number;
+	invs_q_cnt: number;
+	ar_fut: number;
+	ar_cur: number;
+	ar_30: number;
+	ar_bey: number;
+	ar_fut_cnt: number;
+	ar_cur_cnt: number;
+	ar_30_cnt: number;
+	ar_bey_cnt: number;
+	q_cur_cnt: number;
+	q_cur_fix: number;
+	q_cur_dol: number;
+	q_las_cnt: number;
+	q_las_fix: number;
+	q_las_dol: number;
+	q_pre_cnt: number;
+	q_pre_fix: number;
+	q_pre_dol: number;
+	o_cur_cnt: number;
+	o_cur_fix: number;
+	o_cur_dol: number;
+	o_las_cnt: number;
+	o_las_fix: number;
+	o_las_dol: number;
+	o_pre_cnt: number;
+	o_pre_fix: number;
+	o_pre_dol: number;
+	q_pen_cnt: number;
+	q_pen_fix: number;
+	q_pen_dol: number;
+	q_ukn_cnt: number;
+	q_ukn_fix: number;
+	q_ukn_dol: number;
+	unres_cnt: number;
+	unres_dol: number;
+	rga_cnt: number;
+	rga_dol: number;
+	stat6dol_w: number;
+	stat6dol_i: number;
+	stat6dol_o: number;
+	cur_boq: number;
+	pre_boq: number;
+	tfrtcost: number;
 }

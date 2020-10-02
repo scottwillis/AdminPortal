@@ -1,8 +1,37 @@
-<h1>Business Statistics</h1>
+<h1 id="tableLabel">Business Statistics</h1>
 
-<p>This is a simple example of an Angular component.</p>
+<p *ngIf="!item"><em>Loading...</em></p>
 
-<p aria-live="polite">Current count: <strong>{{ currentCount }}</strong></p>
+<button kendoButton [primary]="true" (click)="SwitchCurrPrev()">{{ ButtonLabelCurrPrev }}</button>
 
-<button class="btn btn-primary" (click)="incrementCounter()">Increment</button>
-<button kendoButton [primary]="true" (click)="incrementCounter()">Increment</button>
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="item">
+  <thead>
+    <tr>
+      <td>{{ CurrPrev }}</td>
+      <th>Quoted</th>
+      <th>Released</th>
+      <th>Produced</th>
+      <th>Shipped</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="CurrPrev == 'Current'">
+    <tr><td>Sun</td><td>{{ item.cursunqd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.cursunod | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.cursunpd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.cursunsd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td>Mon</td><td>{{ item.curmonqd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.curmonod | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.curmonpd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.curmonsd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td>Tue</td><td>{{ item.curtueqd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.curtueod | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.curtuepd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.curtuesd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td>Wed</td><td>{{ item.curwedqd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.curwedod | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.curwedpd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.curwedsd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td>Thu</td><td>{{ item.curthuqd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.curthuod | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.curthupd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.curthusd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td>Fri</td><td>{{ item.curfriqd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.curfriod | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.curfripd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.curfrisd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td>Sat</td><td>{{ item.cursatqd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.cursatod | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.cursatpd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.cursatsd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td>Tot</td><td>{{ item.curtotqd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.curtotod | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.curtotpd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.curtotsd | currency:'USD':'symbol':'1.0' }}</td></tr>
+  </tbody>
+  <tbody *ngIf="CurrPrev == 'Previous'">
+    <tr><td>Sun</td><td>{{ item.presunqd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.presunod | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.presunpd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.presunsd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td>Mon</td><td>{{ item.premonqd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.premonod | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.premonpd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.premonsd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td>Tue</td><td>{{ item.pretueqd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.pretueod | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.pretuepd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.pretuesd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td>Wed</td><td>{{ item.prewedqd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.prewedod | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.prewedpd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.prewedsd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td>Thu</td><td>{{ item.prethuqd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.prethuod | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.prethupd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.prethusd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td>Fri</td><td>{{ item.prefriqd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.prefriod | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.prefripd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.prefrisd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td>Sat</td><td>{{ item.presatqd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.presatod | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.presatpd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.presatsd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td>Tot</td><td>{{ item.pretotqd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.pretotod | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.pretotpd | currency:'USD':'symbol':'1.0' }}</td><td>{{ item.pretotsd | currency:'USD':'symbol':'1.0' }}</td></tr>
+  </tbody>
+</table>

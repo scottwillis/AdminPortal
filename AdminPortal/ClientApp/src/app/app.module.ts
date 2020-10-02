@@ -9,10 +9,11 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { StatsComponent } from './stats/stats.component';
+
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsModule } from '@progress/kendo-angular-charts';
-import 'hammerjs';
 import { ChatModule } from '@progress/kendo-angular-conversational-ui';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { DialogsModule } from '@progress/kendo-angular-dialog';
@@ -44,39 +45,7 @@ import { TreeListModule } from '@progress/kendo-angular-treelist';
 import { TreeViewModule } from '@progress/kendo-angular-treeview';
 import { UploadModule } from '@progress/kendo-angular-upload';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import 'hammerjs';
 
 @NgModule({
   declarations: [
@@ -84,7 +53,8 @@ import { UploadModule } from '@progress/kendo-angular-upload';
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent
+    FetchDataComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -94,6 +64,7 @@ import { UploadModule } from '@progress/kendo-angular-upload';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'stats', component: StatsComponent },
     ]),
     ButtonsModule,
     BrowserAnimationsModule,
