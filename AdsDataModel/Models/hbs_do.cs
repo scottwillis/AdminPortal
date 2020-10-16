@@ -14,6 +14,13 @@ namespace AdsDataModel {
 
 		private int _preqfix;
 		private int _curqfix;
+		private int _preofix;
+		private int _curofix;
+		private int _prepfix;
+		private int _curpfix;
+		private int _presfix;
+		private int _cursfix;
+
 		private int _presunqd;
 		private int _premonqd;
 		private int _pretueqd;
@@ -28,8 +35,7 @@ namespace AdsDataModel {
 		private int _curthuqd;
 		private int _curfriqd;
 		private int _cursatqd;
-		private int _preofix;
-		private int _curofix;
+		
 		private int _presunod;
 		private int _premonod;
 		private int _pretueod;
@@ -44,8 +50,7 @@ namespace AdsDataModel {
 		private int _curthuod;
 		private int _curfriod;
 		private int _cursatod;
-		private int _prepfix;
-		private int _curpfix;
+		
 		private int _presunpd;
 		private int _premonpd;
 		private int _pretuepd;
@@ -60,6 +65,7 @@ namespace AdsDataModel {
 		private int _curthupd;
 		private int _curfripd;
 		private int _cursatpd;
+		
 		private int _presunpq;
 		private int _premonpq;
 		private int _pretuepq;
@@ -74,6 +80,7 @@ namespace AdsDataModel {
 		private int _curthupq;
 		private int _curfripq;
 		private int _cursatpq;
+		
 		private int _presunpm;
 		private int _premonpm;
 		private int _pretuepm;
@@ -88,14 +95,7 @@ namespace AdsDataModel {
 		private int _curthupm;
 		private int _curfripm;
 		private int _cursatpm;
-		private int _preinfpd;
-		private int _preinfpq;
-		private int _preinfpm;
-		private int _curinfpd;
-		private int _curinfpq;
-		private int _curinfpm;
-		private int _presfix;
-		private int _cursfix;
+		
 		private int _presunsd;
 		private int _premonsd;
 		private int _pretuesd;
@@ -110,18 +110,7 @@ namespace AdsDataModel {
 		private int _curthusd;
 		private int _curfrisd;
 		private int _cursatsd;
-		private int _cursd;
-		private int _cursc;
-		private int _presd;
-		private int _presc;
-		private int _pre_rts;
-		private int _cur_rts;
-		private int _pre_rtsq;
-		private int _cur_rtsq;
-		private int _pre_rtsr;
-		private int _pre_rtsrq;
-		private int _cur_rtsr;
-		private int _cur_rtsrq;
+
 		private int _presunsq;
 		private int _premonsq;
 		private int _pretuesq;
@@ -136,14 +125,47 @@ namespace AdsDataModel {
 		private int _curthusq;
 		private int _curfrisq;
 		private int _cursatsq;
+
+		private int _preinfpd;
+		private int _curinfpd;
+		private int _preinfpq;
+		private int _curinfpq;
+		private int _preinfpm;
+		private int _curinfpm;
+
+		private int _presd;
+		private int _cursd;
+		private int _presc;
+		private int _cursc;
 		private int _preosd;
 		private int _curosd;
 
+		private int _pre_rts;
+		private int _cur_rts;
+		private int _pre_rtsq;
+		private int _cur_rtsq;
+		private int _pre_rtsr;
+		private int _cur_rtsr;
+		private int _pre_rtsrq;
+		private int _cur_rtsrq;
+		
 		public int preqfix { get => _preqfix; set => SetProperty(ref _preqfix, value); }
 
 		public int curqfix { get => _curqfix; set => SetProperty(ref _curqfix, value); }
 
-		
+		public int preofix { get => _preofix; set => SetProperty(ref _preofix, value); }
+
+		public int curofix { get => _curofix; set => SetProperty(ref _curofix, value); }
+
+		public int prepfix { get => _prepfix; set => SetProperty(ref _prepfix, value); }
+
+		public int curpfix { get => _curpfix; set => SetProperty(ref _curpfix, value); }
+
+		public int presfix { get => _presfix; set => SetProperty(ref _presfix, value); }
+
+		public int cursfix { get => _cursfix; set => SetProperty(ref _cursfix, value); }
+
+
 		public int presunqd { get => _presunqd; set => SetProperty(ref _presunqd, value); }
 
 		public int premonqd { get => _premonqd; set => SetProperty(ref _premonqd, value); }
@@ -177,12 +199,7 @@ namespace AdsDataModel {
 
 		public int curtotqd => cursunqd + curmonqd + curtueqd + curwedqd + curthuqd + curfriqd + cursatqd;
 
-		
-		public int preofix { get => _preofix; set => SetProperty(ref _preofix, value); }
-
-		public int curofix { get => _curofix; set => SetProperty(ref _curofix, value); }
-
-		
+	
 		public int presunod { get => _presunod; set => SetProperty(ref _presunod, value); }
 
 		public int premonod { get => _premonod; set => SetProperty(ref _premonod, value); }
@@ -217,11 +234,6 @@ namespace AdsDataModel {
 		public int curtotod => cursunod + curmonod + curtueod + curwedod + curthuod + curfriod + cursatod;
 
 		
-		public int prepfix { get => _prepfix; set => SetProperty(ref _prepfix, value); }
-
-		public int curpfix { get => _curpfix; set => SetProperty(ref _curpfix, value); }
-
-
 		public int presunpd { get => _presunpd; set => SetProperty(ref _presunpd, value); }
 
 		public int premonpd { get => _premonpd; set => SetProperty(ref _premonpd, value); }
@@ -324,24 +336,6 @@ namespace AdsDataModel {
 		public int curtotpm => cursunpm + curmonpm + curtuepm + curwedpm + curthupm + curfripm + cursatpm;
 
 
-		public int preinfpd { get => _preinfpd; set => SetProperty(ref _preinfpd, value); }
-
-		public int preinfpq { get => _preinfpq; set => SetProperty(ref _preinfpq, value); }
-
-		public int preinfpm { get => _preinfpm; set => SetProperty(ref _preinfpm, value); }
-
-
-		public int curinfpd { get => _curinfpd; set => SetProperty(ref _curinfpd, value); }
-
-		public int curinfpq { get => _curinfpq; set => SetProperty(ref _curinfpq, value); }
-
-		public int curinfpm { get => _curinfpm; set => SetProperty(ref _curinfpm, value); }
-
-		public int presfix { get => _presfix; set => SetProperty(ref _presfix, value); }
-
-		public int cursfix { get => _cursfix; set => SetProperty(ref _cursfix, value); }
-
-		
 		public int presunsd { get => _presunsd; set => SetProperty(ref _presunsd, value); }
 
 		public int premonsd { get => _premonsd; set => SetProperty(ref _premonsd, value); }
@@ -374,31 +368,6 @@ namespace AdsDataModel {
 		public int cursatsd { get => _cursatsd; set => SetProperty(ref _cursatsd, value); }
 
 		public int curtotsd => cursunsd + curmonsd + curtuesd + curwedsd + curthusd + curfrisd + cursatsd;
-
-
-		public int cursd { get => _cursd; set => SetProperty(ref _cursd, value); }
-
-		public int cursc { get => _cursc; set => SetProperty(ref _cursc, value); }
-
-		public int presd { get => _presd; set => SetProperty(ref _presd, value); }
-
-		public int presc { get => _presc; set => SetProperty(ref _presc, value); }
-
-		public int pre_rts { get => _pre_rts; set => SetProperty(ref _pre_rts, value); }
-
-		public int cur_rts { get => _cur_rts; set => SetProperty(ref _cur_rts, value); }
-
-		public int pre_rtsq { get => _pre_rtsq; set => SetProperty(ref _pre_rtsq, value); }
-
-		public int cur_rtsq { get => _cur_rtsq; set => SetProperty(ref _cur_rtsq, value); }
-
-		public int pre_rtsr { get => _pre_rtsr; set => SetProperty(ref _pre_rtsr, value); }
-
-		public int pre_rtsrq { get => _pre_rtsrq; set => SetProperty(ref _pre_rtsrq, value); }
-
-		public int cur_rtsr { get => _cur_rtsr; set => SetProperty(ref _cur_rtsr, value); }
-
-		public int cur_rtsrq { get => _cur_rtsrq; set => SetProperty(ref _cur_rtsrq, value); }
 
 
 		public int presunsq { get => _presunsq; set => SetProperty(ref _presunsq, value); }
@@ -435,9 +404,48 @@ namespace AdsDataModel {
 		public int curtotsq => cursunsq + curmonsq + curtuesq + curwedsq + curthusq + curfrisq + cursatsq;
 
 
+		public int preinfpd { get => _preinfpd; set => SetProperty(ref _preinfpd, value); }
+
+		public int preinfpq { get => _preinfpq; set => SetProperty(ref _preinfpq, value); }
+
+		public int preinfpm { get => _preinfpm; set => SetProperty(ref _preinfpm, value); }
+
+		public int curinfpd { get => _curinfpd; set => SetProperty(ref _curinfpd, value); }
+
+		public int curinfpq { get => _curinfpq; set => SetProperty(ref _curinfpq, value); }
+
+		public int curinfpm { get => _curinfpm; set => SetProperty(ref _curinfpm, value); }
+
+
+		public int presd { get => _presd; set => SetProperty(ref _presd, value); }
+
+		public int cursd { get => _cursd; set => SetProperty(ref _cursd, value); }
+
+		public int presc { get => _presc; set => SetProperty(ref _presc, value); }
+
+		public int cursc { get => _cursc; set => SetProperty(ref _cursc, value); }
+
 		public int preosd { get => _preosd; set => SetProperty(ref _preosd, value); }
 
 		public int curosd { get => _curosd; set => SetProperty(ref _curosd, value); }
+
+
+		public int pre_rts { get => _pre_rts; set => SetProperty(ref _pre_rts, value); }
+
+		public int cur_rts { get => _cur_rts; set => SetProperty(ref _cur_rts, value); }
+
+		public int pre_rtsq { get => _pre_rtsq; set => SetProperty(ref _pre_rtsq, value); }
+
+		public int cur_rtsq { get => _cur_rtsq; set => SetProperty(ref _cur_rtsq, value); }
+
+		public int pre_rtsr { get => _pre_rtsr; set => SetProperty(ref _pre_rtsr, value); }
+
+		public int cur_rtsr { get => _cur_rtsr; set => SetProperty(ref _cur_rtsr, value); }
+
+		public int pre_rtsrq { get => _pre_rtsrq; set => SetProperty(ref _pre_rtsrq, value); }
+
+		public int cur_rtsrq { get => _cur_rtsrq; set => SetProperty(ref _cur_rtsrq, value); }
+
 
 		[MyCustom(AdsIgnore = true)]
 		public sealed override string Key { get; set; }
@@ -448,6 +456,12 @@ namespace AdsDataModel {
 		public override void FillFromReader(AdsDataReader reader) {
 			if (InFieldList("preqfix_w")) preqfix = reader.ReadInt("preqfix_w");
 			if (InFieldList("curqfix_w")) curqfix = reader.ReadInt("curqfix_w");
+			if (InFieldList("preofix_w")) preofix = reader.ReadInt("preofix_w");
+			if (InFieldList("curofix_w")) curofix = reader.ReadInt("curofix_w");
+			if (InFieldList("prepfix_w")) prepfix = reader.ReadInt("prepfix_w");
+			if (InFieldList("curpfix_w")) curpfix = reader.ReadInt("curpfix_w");
+			if (InFieldList("presfix_w")) presfix = reader.ReadInt("presfix_w");
+			if (InFieldList("cursfix_w")) cursfix = reader.ReadInt("cursfix_w");
 			if (InFieldList("presunqd_w")) presunqd = reader.ReadInt("presunqd_w");
 			if (InFieldList("premonqd_w")) premonqd = reader.ReadInt("premonqd_w");
 			if (InFieldList("pretueqd_w")) pretueqd = reader.ReadInt("pretueqd_w");
@@ -462,8 +476,6 @@ namespace AdsDataModel {
 			if (InFieldList("curthuqd_w")) curthuqd = reader.ReadInt("curthuqd_w");
 			if (InFieldList("curfriqd_w")) curfriqd = reader.ReadInt("curfriqd_w");
 			if (InFieldList("cursatqd_w")) cursatqd = reader.ReadInt("cursatqd_w");
-			if (InFieldList("preofix_w")) preofix = reader.ReadInt("preofix_w");
-			if (InFieldList("curofix_w")) curofix = reader.ReadInt("curofix_w");
 			if (InFieldList("presunod_w")) presunod = reader.ReadInt("presunod_w");
 			if (InFieldList("premonod_w")) premonod = reader.ReadInt("premonod_w");
 			if (InFieldList("pretueod_w")) pretueod = reader.ReadInt("pretueod_w");
@@ -478,8 +490,6 @@ namespace AdsDataModel {
 			if (InFieldList("curthuod_w")) curthuod = reader.ReadInt("curthuod_w");
 			if (InFieldList("curfriod_w")) curfriod = reader.ReadInt("curfriod_w");
 			if (InFieldList("cursatod_w")) cursatod = reader.ReadInt("cursatod_w");
-			if (InFieldList("prepfix_w")) prepfix = reader.ReadInt("prepfix_w");
-			if (InFieldList("curpfix_w")) curpfix = reader.ReadInt("curpfix_w");
 			if (InFieldList("presunpd_w")) presunpd = reader.ReadInt("presunpd_w");
 			if (InFieldList("premonpd_w")) premonpd = reader.ReadInt("premonpd_w");
 			if (InFieldList("pretuepd_w")) pretuepd = reader.ReadInt("pretuepd_w");
@@ -528,8 +538,6 @@ namespace AdsDataModel {
 			if (InFieldList("curinfpd_w")) curinfpd = reader.ReadInt("curinfpd_w");
 			if (InFieldList("curinfpq_w")) curinfpq = reader.ReadInt("curinfpq_w");
 			if (InFieldList("curinfpm_w")) curinfpm = reader.ReadInt("curinfpm_w");
-			if (InFieldList("presfix_w")) presfix = reader.ReadInt("presfix_w");
-			if (InFieldList("cursfix_w")) cursfix = reader.ReadInt("cursfix_w");
 			if (InFieldList("presunsd_w")) presunsd = reader.ReadInt("presunsd_w");
 			if (InFieldList("premonsd_w")) premonsd = reader.ReadInt("premonsd_w");
 			if (InFieldList("pretuesd_w")) pretuesd = reader.ReadInt("pretuesd_w");
@@ -544,18 +552,6 @@ namespace AdsDataModel {
 			if (InFieldList("curthusd_w")) curthusd = reader.ReadInt("curthusd_w");
 			if (InFieldList("curfrisd_w")) curfrisd = reader.ReadInt("curfrisd_w");
 			if (InFieldList("cursatsd_w")) cursatsd = reader.ReadInt("cursatsd_w");
-			if (InFieldList("cursd_w")) cursd = reader.ReadInt("cursd_w");
-			if (InFieldList("cursc_w")) cursc = reader.ReadInt("cursc_w");
-			if (InFieldList("presd_w")) presd = reader.ReadInt("presd_w");
-			if (InFieldList("presc_w")) presc = reader.ReadInt("presc_w");
-			if (InFieldList("pre_rts")) pre_rts = reader.ReadInt("pre_rts");
-			if (InFieldList("cur_rts")) cur_rts = reader.ReadInt("cur_rts");
-			if (InFieldList("pre_rtsq")) pre_rtsq = reader.ReadInt("pre_rtsq");
-			if (InFieldList("cur_rtsq")) cur_rtsq = reader.ReadInt("cur_rtsq");
-			if (InFieldList("pre_rtsr")) pre_rtsr = reader.ReadInt("pre_rtsr");
-			if (InFieldList("pre_rtsrq")) pre_rtsrq = reader.ReadInt("pre_rtsrq");
-			if (InFieldList("cur_rtsr")) cur_rtsr = reader.ReadInt("cur_rtsr");
-			if (InFieldList("cur_rtsrq")) cur_rtsrq = reader.ReadInt("cur_rtsrq");
 			if (InFieldList("presunsq_w")) presunsq = reader.ReadInt("presunsq_w");
 			if (InFieldList("premonsq_w")) premonsq = reader.ReadInt("premonsq_w");
 			if (InFieldList("pretuesq_w")) pretuesq = reader.ReadInt("pretuesq_w");
@@ -570,8 +566,20 @@ namespace AdsDataModel {
 			if (InFieldList("curthusq_w")) curthusq = reader.ReadInt("curthusq_w");
 			if (InFieldList("curfrisq_w")) curfrisq = reader.ReadInt("curfrisq_w");
 			if (InFieldList("cursatsq_w")) cursatsq = reader.ReadInt("cursatsq_w");
+			if (InFieldList("presd_w")) presd = reader.ReadInt("presd_w");
+			if (InFieldList("cursd_w")) cursd = reader.ReadInt("cursd_w");
+			if (InFieldList("presc_w")) presc = reader.ReadInt("presc_w");
+			if (InFieldList("cursc_w")) cursc = reader.ReadInt("cursc_w");
 			if (InFieldList("preosd_w")) preosd = reader.ReadInt("preosd_w");
 			if (InFieldList("curosd_w")) curosd = reader.ReadInt("curosd_w");
+			if (InFieldList("pre_rts")) pre_rts = reader.ReadInt("pre_rts");
+			if (InFieldList("cur_rts")) cur_rts = reader.ReadInt("cur_rts");
+			if (InFieldList("pre_rtsq")) pre_rtsq = reader.ReadInt("pre_rtsq");
+			if (InFieldList("cur_rtsq")) cur_rtsq = reader.ReadInt("cur_rtsq");
+			if (InFieldList("pre_rtsr")) pre_rtsr = reader.ReadInt("pre_rtsr");
+			if (InFieldList("pre_rtsrq")) pre_rtsrq = reader.ReadInt("pre_rtsrq");
+			if (InFieldList("cur_rtsr")) cur_rtsr = reader.ReadInt("cur_rtsr");
+			if (InFieldList("cur_rtsrq")) cur_rtsrq = reader.ReadInt("cur_rtsrq");
 			MakeClean();
 		}
 
@@ -586,22 +594,12 @@ namespace AdsDataModel {
 		public override void FillFromReader(AdsDataReader reader) {
 			if (InFieldList("preqfix_o")) preqfix = reader.ReadInt("preqfix_o");
 			if (InFieldList("curqfix_o")) curqfix = reader.ReadInt("curqfix_o");
-			if (InFieldList("presunqd_o")) presunqd = reader.ReadInt("presunqd_o");
-			if (InFieldList("premonqd_o")) premonqd = reader.ReadInt("premonqd_o");
-			if (InFieldList("pretueqd_o")) pretueqd = reader.ReadInt("pretueqd_o");
-			if (InFieldList("prewedqd_o")) prewedqd = reader.ReadInt("prewedqd_o");
-			if (InFieldList("prethuqd_o")) prethuqd = reader.ReadInt("prethuqd_o");
-			if (InFieldList("prefriqd_o")) prefriqd = reader.ReadInt("prefriqd_o");
-			if (InFieldList("presatqd_o")) presatqd = reader.ReadInt("presatqd_o");
-			if (InFieldList("cursunqd_o")) cursunqd = reader.ReadInt("cursunqd_o");
-			if (InFieldList("curmonqd_o")) curmonqd = reader.ReadInt("curmonqd_o");
-			if (InFieldList("curtueqd_o")) curtueqd = reader.ReadInt("curtueqd_o");
-			if (InFieldList("curwedqd_o")) curwedqd = reader.ReadInt("curwedqd_o");
-			if (InFieldList("curthuqd_o")) curthuqd = reader.ReadInt("curthuqd_o");
-			if (InFieldList("curfriqd_o")) curfriqd = reader.ReadInt("curfriqd_o");
-			if (InFieldList("cursatqd_o")) cursatqd = reader.ReadInt("cursatqd_o");
 			if (InFieldList("preofix_o")) preofix = reader.ReadInt("preofix_o");
 			if (InFieldList("curofix_o")) curofix = reader.ReadInt("curofix_o");
+			if (InFieldList("prepfix_o")) prepfix = reader.ReadInt("prepfix_o");
+			if (InFieldList("curpfix_o")) curpfix = reader.ReadInt("curpfix_o");
+			if (InFieldList("presfix_o")) presfix = reader.ReadInt("presfix_o");
+			if (InFieldList("cursfix_o")) cursfix = reader.ReadInt("cursfix_o");
 			if (InFieldList("presunod_o")) presunod = reader.ReadInt("presunod_o");
 			if (InFieldList("premonod_o")) premonod = reader.ReadInt("premonod_o");
 			if (InFieldList("pretueod_o")) pretueod = reader.ReadInt("pretueod_o");
@@ -616,8 +614,6 @@ namespace AdsDataModel {
 			if (InFieldList("curthuod_o")) curthuod = reader.ReadInt("curthuod_o");
 			if (InFieldList("curfriod_o")) curfriod = reader.ReadInt("curfriod_o");
 			if (InFieldList("cursatod_o")) cursatod = reader.ReadInt("cursatod_o");
-			if (InFieldList("prepfix_o")) prepfix = reader.ReadInt("prepfix_o");
-			if (InFieldList("curpfix_o")) curpfix = reader.ReadInt("curpfix_o");
 			if (InFieldList("presunpd_o")) presunpd = reader.ReadInt("presunpd_o");
 			if (InFieldList("premonpd_o")) premonpd = reader.ReadInt("premonpd_o");
 			if (InFieldList("pretuepd_o")) pretuepd = reader.ReadInt("pretuepd_o");
@@ -666,8 +662,6 @@ namespace AdsDataModel {
 			if (InFieldList("curinfpd_o")) curinfpd = reader.ReadInt("curinfpd_o");
 			if (InFieldList("curinfpq_o")) curinfpq = reader.ReadInt("curinfpq_o");
 			if (InFieldList("curinfpm_o")) curinfpm = reader.ReadInt("curinfpm_o");
-			if (InFieldList("presfix_o")) presfix = reader.ReadInt("presfix_o");
-			if (InFieldList("cursfix_o")) cursfix = reader.ReadInt("cursfix_o");
 			if (InFieldList("presunsd_o")) presunsd = reader.ReadInt("presunsd_o");
 			if (InFieldList("premonsd_o")) premonsd = reader.ReadInt("premonsd_o");
 			if (InFieldList("pretuesd_o")) pretuesd = reader.ReadInt("pretuesd_o");
@@ -682,18 +676,6 @@ namespace AdsDataModel {
 			if (InFieldList("curthusd_o")) curthusd = reader.ReadInt("curthusd_o");
 			if (InFieldList("curfrisd_o")) curfrisd = reader.ReadInt("curfrisd_o");
 			if (InFieldList("cursatsd_o")) cursatsd = reader.ReadInt("cursatsd_o");
-			if (InFieldList("cursd_o")) cursd = reader.ReadInt("cursd_o");
-			if (InFieldList("cursc_o")) cursc = reader.ReadInt("cursc_o");
-			if (InFieldList("presd_o")) presd = reader.ReadInt("presd_o");
-			if (InFieldList("presc_o")) presc = reader.ReadInt("presc_o");
-			if (InFieldList("pre_rts")) pre_rts = reader.ReadInt("pre_rts");
-			if (InFieldList("cur_rts")) cur_rts = reader.ReadInt("cur_rts");
-			if (InFieldList("pre_rtsq")) pre_rtsq = reader.ReadInt("pre_rtsq");
-			if (InFieldList("cur_rtsq")) cur_rtsq = reader.ReadInt("cur_rtsq");
-			if (InFieldList("pre_rtsr")) pre_rtsr = reader.ReadInt("pre_rtsr");
-			if (InFieldList("pre_rtsrq")) pre_rtsrq = reader.ReadInt("pre_rtsrq");
-			if (InFieldList("cur_rtsr")) cur_rtsr = reader.ReadInt("cur_rtsr");
-			if (InFieldList("cur_rtsrq")) cur_rtsrq = reader.ReadInt("cur_rtsrq");
 			if (InFieldList("presunsq_o")) presunsq = reader.ReadInt("presunsq_o");
 			if (InFieldList("premonsq_o")) premonsq = reader.ReadInt("premonsq_o");
 			if (InFieldList("pretuesq_o")) pretuesq = reader.ReadInt("pretuesq_o");
@@ -708,8 +690,20 @@ namespace AdsDataModel {
 			if (InFieldList("curthusq_o")) curthusq = reader.ReadInt("curthusq_o");
 			if (InFieldList("curfrisq_o")) curfrisq = reader.ReadInt("curfrisq_o");
 			if (InFieldList("cursatsq_o")) cursatsq = reader.ReadInt("cursatsq_o");
+			if (InFieldList("presd_o")) presd = reader.ReadInt("presd_o");
+			if (InFieldList("cursd_o")) cursd = reader.ReadInt("cursd_o");
+			if (InFieldList("presc_o")) presc = reader.ReadInt("presc_o");
+			if (InFieldList("cursc_o")) cursc = reader.ReadInt("cursc_o");
 			if (InFieldList("preosd_o")) preosd = reader.ReadInt("preosd_o");
 			if (InFieldList("curosd_o")) curosd = reader.ReadInt("curosd_o");
+			if (InFieldList("pre_rts")) pre_rts = reader.ReadInt("pre_rts");
+			if (InFieldList("cur_rts")) cur_rts = reader.ReadInt("cur_rts");
+			if (InFieldList("pre_rtsq")) pre_rtsq = reader.ReadInt("pre_rtsq");
+			if (InFieldList("cur_rtsq")) cur_rtsq = reader.ReadInt("cur_rtsq");
+			if (InFieldList("pre_rtsr")) pre_rtsr = reader.ReadInt("pre_rtsr");
+			if (InFieldList("pre_rtsrq")) pre_rtsrq = reader.ReadInt("pre_rtsrq");
+			if (InFieldList("cur_rtsr")) cur_rtsr = reader.ReadInt("cur_rtsr");
+			if (InFieldList("cur_rtsrq")) cur_rtsrq = reader.ReadInt("cur_rtsrq");
 			MakeClean();
 		}
 
@@ -720,6 +714,12 @@ namespace AdsDataModel {
 		public override void FillFromReader(AdsDataReader reader) {
 			if (InFieldList("preqfix_i")) preqfix = reader.ReadInt("preqfix_i");
 			if (InFieldList("curqfix_i")) curqfix = reader.ReadInt("curqfix_i");
+			if (InFieldList("preofix_i")) preofix = reader.ReadInt("preofix_i");
+			if (InFieldList("curofix_i")) curofix = reader.ReadInt("curofix_i");
+			if (InFieldList("prepfix_i")) prepfix = reader.ReadInt("prepfix_i");
+			if (InFieldList("curpfix_i")) curpfix = reader.ReadInt("curpfix_i");
+			if (InFieldList("presfix_i")) presfix = reader.ReadInt("presfix_i");
+			if (InFieldList("cursfix_i")) cursfix = reader.ReadInt("cursfix_i");
 			if (InFieldList("presunqd_i")) presunqd = reader.ReadInt("presunqd_i");
 			if (InFieldList("premonqd_i")) premonqd = reader.ReadInt("premonqd_i");
 			if (InFieldList("pretueqd_i")) pretueqd = reader.ReadInt("pretueqd_i");
@@ -734,8 +734,6 @@ namespace AdsDataModel {
 			if (InFieldList("curthuqd_i")) curthuqd = reader.ReadInt("curthuqd_i");
 			if (InFieldList("curfriqd_i")) curfriqd = reader.ReadInt("curfriqd_i");
 			if (InFieldList("cursatqd_i")) cursatqd = reader.ReadInt("cursatqd_i");
-			if (InFieldList("preofix_i")) preofix = reader.ReadInt("preofix_i");
-			if (InFieldList("curofix_i")) curofix = reader.ReadInt("curofix_i");
 			if (InFieldList("presunod_i")) presunod = reader.ReadInt("presunod_i");
 			if (InFieldList("premonod_i")) premonod = reader.ReadInt("premonod_i");
 			if (InFieldList("pretueod_i")) pretueod = reader.ReadInt("pretueod_i");
@@ -750,8 +748,6 @@ namespace AdsDataModel {
 			if (InFieldList("curthuod_i")) curthuod = reader.ReadInt("curthuod_i");
 			if (InFieldList("curfriod_i")) curfriod = reader.ReadInt("curfriod_i");
 			if (InFieldList("cursatod_i")) cursatod = reader.ReadInt("cursatod_i");
-			if (InFieldList("prepfix_i")) prepfix = reader.ReadInt("prepfix_i");
-			if (InFieldList("curpfix_i")) curpfix = reader.ReadInt("curpfix_i");
 			if (InFieldList("presunpd_i")) presunpd = reader.ReadInt("presunpd_i");
 			if (InFieldList("premonpd_i")) premonpd = reader.ReadInt("premonpd_i");
 			if (InFieldList("pretuepd_i")) pretuepd = reader.ReadInt("pretuepd_i");
@@ -800,8 +796,6 @@ namespace AdsDataModel {
 			if (InFieldList("curinfpd_i")) curinfpd = reader.ReadInt("curinfpd_i");
 			if (InFieldList("curinfpq_i")) curinfpq = reader.ReadInt("curinfpq_i");
 			if (InFieldList("curinfpm_i")) curinfpm = reader.ReadInt("curinfpm_i");
-			if (InFieldList("presfix_i")) presfix = reader.ReadInt("presfix_i");
-			if (InFieldList("cursfix_i")) cursfix = reader.ReadInt("cursfix_i");
 			if (InFieldList("presunsd_i")) presunsd = reader.ReadInt("presunsd_i");
 			if (InFieldList("premonsd_i")) premonsd = reader.ReadInt("premonsd_i");
 			if (InFieldList("pretuesd_i")) pretuesd = reader.ReadInt("pretuesd_i");
@@ -816,18 +810,6 @@ namespace AdsDataModel {
 			if (InFieldList("curthusd_i")) curthusd = reader.ReadInt("curthusd_i");
 			if (InFieldList("curfrisd_i")) curfrisd = reader.ReadInt("curfrisd_i");
 			if (InFieldList("cursatsd_i")) cursatsd = reader.ReadInt("cursatsd_i");
-			if (InFieldList("cursd_i")) cursd = reader.ReadInt("cursd_i");
-			if (InFieldList("cursc_i")) cursc = reader.ReadInt("cursc_i");
-			if (InFieldList("presd_i")) presd = reader.ReadInt("presd_i");
-			if (InFieldList("presc_i")) presc = reader.ReadInt("presc_i");
-			if (InFieldList("pre_rts")) pre_rts = reader.ReadInt("pre_rts");
-			if (InFieldList("cur_rts")) cur_rts = reader.ReadInt("cur_rts");
-			if (InFieldList("pre_rtsq")) pre_rtsq = reader.ReadInt("pre_rtsq");
-			if (InFieldList("cur_rtsq")) cur_rtsq = reader.ReadInt("cur_rtsq");
-			if (InFieldList("pre_rtsr")) pre_rtsr = reader.ReadInt("pre_rtsr");
-			if (InFieldList("pre_rtsrq")) pre_rtsrq = reader.ReadInt("pre_rtsrq");
-			if (InFieldList("cur_rtsr")) cur_rtsr = reader.ReadInt("cur_rtsr");
-			if (InFieldList("cur_rtsrq")) cur_rtsrq = reader.ReadInt("cur_rtsrq");
 			if (InFieldList("presunsq_i")) presunsq = reader.ReadInt("presunsq_i");
 			if (InFieldList("premonsq_i")) premonsq = reader.ReadInt("premonsq_i");
 			if (InFieldList("pretuesq_i")) pretuesq = reader.ReadInt("pretuesq_i");
@@ -842,8 +824,20 @@ namespace AdsDataModel {
 			if (InFieldList("curthusq_i")) curthusq = reader.ReadInt("curthusq_i");
 			if (InFieldList("curfrisq_i")) curfrisq = reader.ReadInt("curfrisq_i");
 			if (InFieldList("cursatsq_i")) cursatsq = reader.ReadInt("cursatsq_i");
+			if (InFieldList("presd_i")) presd = reader.ReadInt("presd_i");
+			if (InFieldList("cursd_i")) cursd = reader.ReadInt("cursd_i");
+			if (InFieldList("presc_i")) presc = reader.ReadInt("presc_i");
+			if (InFieldList("cursc_i")) cursc = reader.ReadInt("cursc_i");
 			if (InFieldList("preosd_i")) preosd = reader.ReadInt("preosd_i");
 			if (InFieldList("curosd_i")) curosd = reader.ReadInt("curosd_i");
+			if (InFieldList("pre_rts")) pre_rts = reader.ReadInt("pre_rts");
+			if (InFieldList("cur_rts")) cur_rts = reader.ReadInt("cur_rts");
+			if (InFieldList("pre_rtsq")) pre_rtsq = reader.ReadInt("pre_rtsq");
+			if (InFieldList("cur_rtsq")) cur_rtsq = reader.ReadInt("cur_rtsq");
+			if (InFieldList("pre_rtsr")) pre_rtsr = reader.ReadInt("pre_rtsr");
+			if (InFieldList("pre_rtsrq")) pre_rtsrq = reader.ReadInt("pre_rtsrq");
+			if (InFieldList("cur_rtsr")) cur_rtsr = reader.ReadInt("cur_rtsr");
+			if (InFieldList("cur_rtsrq")) cur_rtsrq = reader.ReadInt("cur_rtsrq");
 			MakeClean();
 		}
 

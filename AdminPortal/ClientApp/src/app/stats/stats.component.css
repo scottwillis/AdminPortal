@@ -1,0 +1,109 @@
+@media screen and (min-width: 601px) {
+  table {
+    --border: 1px solid black;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    font-size: smaller;
+    --border: 1px solid black;
+  }
+}
+
+table th.left-do {
+  text-align: left;
+  padding-right: 0;
+  padding-left: 0;
+  table-layout: fixed;
+  /*width: 40px;*/
+  width: 8%;
+  --border: 1px solid black;
+}
+
+table td.left-do {
+  text-align: left;
+  padding-right: 0;
+  padding-left: 0;
+  table-layout: fixed;
+  /*width: 40px;*/
+  width: 8%;
+  --font-weight: bold;
+  --border: 1px solid black;
+}
+
+table th.right-do {
+  text-align: right;
+  padding-right: 0;
+  padding-left: 0;
+  /*width: calc(25% - 40px);*/
+  table-layout: fixed;
+  width: 23%;
+  --border: 1px solid black;
+}
+
+table td.right-do {
+  text-align: right;
+  padding-right: 0;
+  padding-left: 0;
+  table-layout: fixed;
+  width: 23%;
+  --border: 1px solid black;
+}
+
+table th.left-bl {
+  text-align: left;
+  padding-right: 0;
+  padding-left: 0;
+  table-layout: fixed;
+  width: 12%;
+  --border: 1px solid black;
+}
+
+table td.left-bl {
+  text-align: left;
+  padding-right: 0;
+  padding-left: 0;
+  table-layout: fixed;
+  width: 12%;
+  --font-weight: bold;
+  --border: 1px solid black;
+}
+
+table th.right-bl {
+  text-align: right;
+  padding-right: 0;
+  padding-left: 0;
+  table-layout: fixed;
+  width: 44%;
+  --border: 1px solid black;
+}
+
+table td.right-bl {
+  text-align: right;
+  padding-right: 0;
+  padding-left: 0;
+  table-layout: fixed;
+  width: 44%;
+  --border: 1px solid black;
+}
+
+.menu-buttons {
+  margin-left: 15px;
+}
+
+header {
+  --border-bottom: 1px solid #000;
+}
+
+header > h1 {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+header span {
+  font-size: medium;
+  font-style: italic;
+  color: darkgray;
+  --margin-left: 15px;
+}

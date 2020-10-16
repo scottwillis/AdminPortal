@@ -3,45 +3,145 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
 	selector: 'app-stats-component',
-	templateUrl: './stats.component.html'
+	templateUrl: './stats.component.html',
+	styleUrls: ['./stats.component.css']
 })
 
 export class StatsComponent {
 
-	item: Bs_Do_W;
-	CurrPrev = 'Current';
-	ButtonLabelCurrPrev = 'Previous';
+	mis: Bs_Mis;
+	dos: Bs_Do[];
+	do: Bs_Do;
+	bls: Bs_Bl[];
+	bl: Bs_Bl;
+	toggleable = true;
+
+	isDo = true;
+	isBl = false;
+
+	isCurrent = true;
+	isPrevious = false;
+
+	isWilliams = true;
+	isInfinity = false;
+	isOutdoor = false;
+	isCombined = false;
+
+	date1 = new Date();
+	date2 = new Date();
+	date3 = new Date();
+	date4 = new Date();
+	date5 = new Date();
+	date6 = new Date();
+	date7 = new Date();
 
 	constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-		http.get<Bs_Do_W>(baseUrl + 'data').subscribe(result => {
-			this.item = result;
+		this.date1 = this.getNextDayOfWeek(new Date(), 6);
+		this.date2 = new Date(this.date2.setDate(this.date1.getDate() + 7));
+		this.date3 = new Date(this.date3.setDate(this.date2.getDate() + 7));
+		this.date4 = new Date(this.date4.setDate(this.date3.getDate() + 7));
+		this.date5 = new Date(this.date5.setDate(this.date4.getDate() + 7));
+		this.date6 = new Date(this.date6.setDate(this.date5.getDate() + 7));
+		this.date7 = new Date(this.date7.setDate(this.date6.getDate() + 7));
+		http.get<Bs_Mis>(baseUrl + 'data/GetMis').subscribe(result => {
+			this.mis = result;
+		}, error => console.error(error));
+		http.get<Bs_Do[]>(baseUrl + 'data/GetDo').subscribe(result => {
+			this.dos = result;
+			this.do = this.dos[0];
+		}, error => console.error(error));
+		http.get<Bs_Bl[]>(baseUrl + 'data/GetBl').subscribe(result => {
+			this.bls = result;
+			this.bl = this.bls[0];
 		}, error => console.error(error));
 	}
 
-	SwitchCurrPrev() {
-		if (this.CurrPrev === 'Current') {
-			this.CurrPrev = 'Previous';
-			this.ButtonLabelCurrPrev = 'Current';
+	SwitchToCurrent() {
+		this.isCurrent = true;
+		this.isPrevious = false;
+	}
+
+	SwitchToPrevious() {
+		this.isCurrent = false;
+		this.isPrevious = true;
+	}
+
+	SwitchToWilliams() {
+		this.isWilliams = true;
+		this.isInfinity = false;
+		this.isOutdoor = false;
+		this.isCombined = false;
+		if (this.isDo) {
+			this.do = this.dos[0];
 		} else {
-			this.CurrPrev = 'Current';
-			this.ButtonLabelCurrPrev = 'Previous';
+			this.bl = this.bls[0];
 		}
 	}
 
-}
+	SwitchToInfinity() {
+		this.isWilliams = false;
+		this.isInfinity = true;
+		this.isOutdoor = false;
+		this.isCombined = false;
+		if (this.isDo) {
+			this.do = this.dos[1];
+		} else {
+			this.bl = this.bls[1];
+		}
+	}
 
-interface Bs_Do_W extends Bs_Do {
-}
+	SwitchToOutdoor() {
+		this.isWilliams = false;
+		this.isInfinity = false;
+		this.isOutdoor = true;
+		this.isCombined = false;
+		if (this.isDo) {
+			this.do = this.dos[2];
+		} else {
+			this.bl = this.bls[2];
+		}
+	}
 
-interface Bs_Do_I extends Bs_Do {
-}
+	SwitchToCombined() {
+		this.isWilliams = false;
+		this.isInfinity = false;
+		this.isOutdoor = false;
+		this.isCombined = true;
+		if (this.isDo) {
+			this.do = this.dos[3];
+		} else {
+			this.bl = this.bls[3];
+		}
+	}
 
-interface Bs_Do_O extends Bs_Do {
+	SwitchToDo() {
+		this.isDo = true;
+		this.isBl = false;
+	}
+
+	SwitchToBl() {
+		this.isDo = false;
+		this.isBl = true;
+	}
+
+	getNextDayOfWeek(date: Date, dayOfWeek: number): Date {
+		let resultDate = new Date(date.getTime());
+		resultDate.setDate(date.getDate() + (7 + dayOfWeek - date.getDay()) % 7);
+		return resultDate;
+	}
+
 }
 
 interface Bs_Do {
 	preqfix: number;
 	curqfix: number;
+	preofix: number;
+	curofix: number;
+	prepfix: number;
+	curpfix: number;
+	presfix: number;
+	cursfix: number;
+
 	presunqd: number;
 	premonqd: number;
 	pretueqd: number;
@@ -58,8 +158,7 @@ interface Bs_Do {
 	curfriqd: number;
 	cursatqd: number;
 	curtotqd: number;
-	preofix: number;
-	curofix: number;
+
 	presunod: number;
 	premonod: number;
 	pretueod: number;
@@ -76,8 +175,7 @@ interface Bs_Do {
 	curfriod: number;
 	cursatod: number;
 	curtotod: number;
-	prepfix: number;
-	curpfix: number;
+
 	presunpd: number;
 	premonpd: number;
 	pretuepd: number;
@@ -94,6 +192,7 @@ interface Bs_Do {
 	curfripd: number;
 	cursatpd: number;
 	curtotpd: number;
+
 	presunpq: number;
 	premonpq: number;
 	pretuepq: number;
@@ -110,6 +209,7 @@ interface Bs_Do {
 	curfripq: number;
 	cursatpq: number;
 	curtotpq: number;
+
 	presunpm: number;
 	premonpm: number;
 	pretuepm: number;
@@ -126,14 +226,7 @@ interface Bs_Do {
 	curfripm: number;
 	cursatpm: number;
 	curtotpm: number;
-	preinfpd: number;
-	preinfpq: number;
-	preinfpm: number;
-	curinfpd: number;
-	curinfpq: number;
-	curinfpm: number;
-	presfix: number;
-	cursfix: number;
+
 	presunsd: number;
 	premonsd: number;
 	pretuesd: number;
@@ -150,18 +243,7 @@ interface Bs_Do {
 	curfrisd: number;
 	cursatsd: number;
 	curtotsd: number;
-	cursd: number;
-	cursc: number;
-	presd: number;
-	presc: number;
-	pre_rts: number;
-	cur_rts: number;
-	pre_rtsq: number;
-	cur_rtsq: number;
-	pre_rtsr: number;
-	pre_rtsrq: number;
-	cur_rtsr: number;
-	cur_rtsrq: number;
+
 	presunsq: number;
 	premonsq: number;
 	pretuesq: number;
@@ -178,175 +260,139 @@ interface Bs_Do {
 	curfrisq: number;
 	cursatsq: number;
 	curtotsq: number;
+
+	preinfpd: number;
+	curinfpd: number;
+	preinfpq: number;
+	curinfpq: number;
+	preinfpm: number;
+	curinfpm: number;
+
+	presd: number;
+	cursd: number;
+	presc: number;
+	cursc: number;
 	preosd: number;
 	curosd: number;
-}
 
-interface Bs_DoW {
-	preqfix_w: number;
-	curqfix_w: number;
-	presunqd_w: number;
-	premonqd_w: number;
-	pretueqd_w: number;
-	prewedqd_w: number;
-	prethuqd_w: number;
-	prefriqd_w: number;
-	presatqd_w: number;
-	pretotqd_w: number;
-	cursunqd_w: number;
-	curmonqd_w: number;
-	curtueqd_w: number;
-	curwedqd_w: number;
-	curthuqd_w: number;
-	curfriqd_w: number;
-	cursatqd_w: number;
-	curtotqd_w: number;
-	preofix_w: number;
-	curofix_w: number;
-	presunod_w: number;
-	premonod_w: number;
-	pretueod_w: number;
-	prewedod_w: number;
-	prethuod_w: number;
-	prefriod_w: number;
-	presatod_w: number;
-	pretotod_w: number;
-	cursunod_w: number;
-	curmonod_w: number;
-	curtueod_w: number;
-	curwedod_w: number;
-	curthuod_w: number;
-	curfriod_w: number;
-	cursatod_w: number;
-	curtotod_w: number;
-	prepfix_w: number;
-	curpfix_w: number;
-	presunpd_w: number;
-	premonpd_w: number;
-	pretuepd_w: number;
-	prewedpd_w: number;
-	prethupd_w: number;
-	prefripd_w: number;
-	presatpd_w: number;
-	pretotpd_w: number;
-	cursunpd_w: number;
-	curmonpd_w: number;
-	curtuepd_w: number;
-	curwedpd_w: number;
-	curthupd_w: number;
-	curfripd_w: number;
-	cursatpd_w: number;
-	curtotpd_w: number;
-	presunpq_w: number;
-	premonpq_w: number;
-	pretuepq_w: number;
-	prewedpq_w: number;
-	prethupq_w: number;
-	prefripq_w: number;
-	presatpq_w: number;
-	pretotpq_w: number;
-	cursunpq_w: number;
-	curmonpq_w: number;
-	curtuepq_w: number;
-	curwedpq_w: number;
-	curthupq_w: number;
-	curfripq_w: number;
-	cursatpq_w: number;
-	curtotpq_w: number;
-	presunpm_w: number;
-	premonpm_w: number;
-	pretuepm_w: number;
-	prewedpm_w: number;
-	prethupm_w: number;
-	prefripm_w: number;
-	presatpm_w: number;
-	pretotpm_w: number;
-	cursunpm_w: number;
-	curmonpm_w: number;
-	curtuepm_w: number;
-	curwedpm_w: number;
-	curthupm_w: number;
-	curfripm_w: number;
-	cursatpm_w: number;
-	curtotpm_w: number;
-	preinfpd_w: number;
-	preinfpq_w: number;
-	preinfpm_w: number;
-	curinfpd_w: number;
-	curinfpq_w: number;
-	curinfpm_w: number;
-	presfix_w: number;
-	cursfix_w: number;
-	presunsd_w: number;
-	premonsd_w: number;
-	pretuesd_w: number;
-	prewedsd_w: number;
-	prethusd_w: number;
-	prefrisd_w: number;
-	presatsd_w: number;
-	pretotsd_w: number;
-	cursunsd_w: number;
-	curmonsd_w: number;
-	curtuesd_w: number;
-	curwedsd_w: number;
-	curthusd_w: number;
-	curfrisd_w: number;
-	cursatsd_w: number;
-	curtotsd_w: number;
-	cursd_w: number;
-	cursc_w: number;
-	presd_w: number;
-	presc_w: number;
 	pre_rts: number;
 	cur_rts: number;
 	pre_rtsq: number;
 	cur_rtsq: number;
 	pre_rtsr: number;
-	pre_rtsrq: number;
 	cur_rtsr: number;
+	pre_rtsrq: number;
 	cur_rtsrq: number;
-	presunsq_w: number;
-	premonsq_w: number;
-	pretuesq_w: number;
-	prewedsq_w: number;
-	prethusq_w: number;
-	prefrisq_w: number;
-	presatsq_w: number;
-	pretotsq_w: number;
-	cursunsq_w: number;
-	curmonsq_w: number;
-	curtuesq_w: number;
-	curwedsq_w: number;
-	curthusq_w: number;
-	curfrisq_w: number;
-	cursatsq_w: number;
-	curtotsq_w: number;
-	preosd_w: number;
-	curosd_w: number;
+}
+
+interface Bs_Bl {
+	bluqty: number;
+	bludol: number;
+	blupqty: number;
+	blupdol: number;
+	blumin: number;
+	bluvcdol: number;
+
+	blpqty: number;
+	blpdol: number;
+	blppqty: number;
+	blppdol: number;
+	blpmin: number;
+	blpvcdol: number;
+
+	blcqty: number;
+	blcdol: number;
+	blcpqty: number;
+	blcpdol: number;
+	blcmin: number;
+	blcvcdol: number;
+
+	bl1qty: number;
+	bl1dol: number;
+	bl1pqty: number;
+	bl1pdol: number;
+	bl1min: number;
+	bl1vcdol: number;
+
+	bl2qty: number;
+	bl2dol: number;
+	bl2pqty: number;
+	bl2pdol: number;
+	bl2min: number;
+	bl2vcdol: number;
+
+	bl3qty: number;
+	bl3dol: number;
+	bl3pqty: number;
+	bl3pdol: number;
+	bl3min: number;
+	bl3vcdol: number;
+
+	bl4qty: number;
+	bl4dol: number;
+	bl4pqty: number;
+	bl4pdol: number;
+	bl4min: number;
+	bl4vcdol: number;
+
+	bl5qty: number;
+	bl5dol: number;
+	bl5pqty: number;
+	bl5pdol: number;
+	bl5min: number;
+	bl5vcdol: number;
+
+	bl6qty: number;
+	bl6dol: number;
+	bl6pqty: number;
+	bl6pdol: number;
+	bl6min: number;
+	bl6vcdol: number;
+
+	blfqty: number;
+	blfdol: number;
+	blfpqty: number;
+	blfpdol: number;
+	blfmin: number;
+	blfvcdol: number;
+
+	blcstfl: number;
+	bltot: number;
+	bldol: number;
+	blcst: number;
+	blvcdol: number;
+
+	bltqty: number;
+	bltdol: number;
+	//bltpqty: number;
+	//bltpdol: number;
+	//bltmin: number;
+	//bltvcdol: number;
+
 }
 
 interface Bs_Mis {
-	calcdate: Date;
+	calcdate?: Date;
 	calctime: string;
 	calcend: string;
-	me_cur: Date;
-	me_las: Date;
-	me_pre: Date;
-	me_start: Date;
-	pre_sun: Date;
-	pre_mon: Date;
-	pre_tue: Date;
-	pre_wed: Date;
-	pre_thu: Date;
-	pre_fri: Date;
-	pre_sat: Date;
-	cur_sun: Date;
-	cur_mon: Date;
-	cur_tue: Date;
-	cur_wed: Date;
-	cur_thu: Date;
-	cur_fri: Date;
-	cur_sat: Date;
+	me_cur?: Date;
+	me_las?: Date;
+	me_pre?: Date;
+	me_start?: Date;
+	pre_sun?: Date;
+	pre_mon?: Date;
+	pre_tue?: Date;
+	pre_wed?: Date;
+	pre_thu?: Date;
+	pre_fri?: Date;
+	pre_sat?: Date;
+	cur_sun?: Date;
+	cur_mon?: Date;
+	cur_tue?: Date;
+	cur_wed?: Date;
+	cur_thu?: Date;
+	cur_fri?: Date;
+	cur_sat?: Date;
 	ho_l60_cnt: number;
 	ho_l60_fix: number;
 	ho_l60_dol: number;
