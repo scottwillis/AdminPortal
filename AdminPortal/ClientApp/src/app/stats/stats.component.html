@@ -4,7 +4,7 @@
   <h1 id="tableLabel">Business Statistics</h1>
   <span *ngIf="bl && do">
     updated: {{ mis.calcdate | date: 'MM/dd/yyyy' }} @ {{ mis.calctime }}
-    <button kendoButton [iconClass]="'fa fa-refresh fa-fw'" [look]="'flat'" class="update-button" (click)="update()"></button>
+    <button kendoButton [iconClass]="'fa fa-refresh fa-fw'" [look]="'flat'" class="update-button" (click)="loadData()"></button>
   </span>
   <span *ngIf="!bl && !do">Loading&nbsp;<kendo-loader [size]="'small'"></kendo-loader></span>
 </header>
