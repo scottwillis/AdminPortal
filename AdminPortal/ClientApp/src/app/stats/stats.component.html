@@ -1,16 +1,21 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
 <header>
   <h1 id="tableLabel">Business Statistics</h1>
-  <span *ngIf="bl && do">Updated: {{ mis.calcdate | date: 'MM/dd/yyyy' }} @ {{ mis.calctime }}</span>
+  <span *ngIf="bl && do">
+    updated: {{ mis.calcdate | date: 'MM/dd/yyyy' }} @ {{ mis.calctime }}
+    <button kendoButton [iconClass]="'fa fa-refresh fa-fw'" [look]="'flat'" class="update-button" (click)="update()"></button>
+  </span>
   <span *ngIf="!bl && !do">Loading&nbsp;<kendo-loader [size]="'small'"></kendo-loader></span>
- </header>
+</header>
 
 <div class="row" *ngIf="bl && do">
 
   <div class="menu-buttons">
     <p>
       <kendo-buttongroup look="outline" [selection]="'single'">
-        <button kendoButton [toggleable]="toggleable" (selectedChange)="SwitchToDo()" [selected]="isDo">Daily Operations</button>
-        <button kendoButton [toggleable]="toggleable" (selectedChange)="SwitchToBl()" [selected]="isBl">Back Log</button>
+        <button kendoButton [toggleable]="toggleable" (selectedChange)="switchToDo()" [selected]="isDo">Daily Operations</button>
+        <button kendoButton [toggleable]="toggleable" (selectedChange)="switchToBl()" [selected]="isBl">Back Log</button>
       </kendo-buttongroup>
     </p>
   </div>
@@ -18,10 +23,10 @@
   <div class="menu-buttons">
     <p>
       <kendo-buttongroup look="outline" [selection]="'single'">
-        <button kendoButton [toggleable]="toggleable" (selectedChange)="SwitchToWilliams()" [selected]="isWilliams">Williams</button>
-        <button kendoButton [toggleable]="toggleable" (selectedChange)="SwitchToInfinity()" [selected]="isInfinity">Infinity</button>
-        <button kendoButton [toggleable]="toggleable" (selectedChange)="SwitchToOutdoor()"  [selected]="isOutdoor">Outdoor</button>
-        <button kendoButton [toggleable]="toggleable" (selectedChange)="SwitchToCombined()" [selected]="isCombined">Combined</button>
+        <button kendoButton [toggleable]="toggleable" (selectedChange)="switchToWilliams()" [selected]="isWilliams">Williams</button>
+        <button kendoButton [toggleable]="toggleable" (selectedChange)="switchToInfinity()" [selected]="isInfinity">Infinity</button>
+        <button kendoButton [toggleable]="toggleable" (selectedChange)="switchToOutdoor()"  [selected]="isOutdoor">Outdoor</button>
+        <button kendoButton [toggleable]="toggleable" (selectedChange)="switchToCombined()" [selected]="isCombined">Combined</button>
       </kendo-buttongroup>
     </p>
   </div>
@@ -29,8 +34,8 @@
   <div class="menu-buttons" *ngIf="isDo">
     <p>
       <kendo-buttongroup look="outline" [selection]="'single'">
-        <button kendoButton [toggleable]="toggleable" (selectedChange)="SwitchToCurrent()"  [selected]="isCurrent">Current</button>
-        <button kendoButton [toggleable]="toggleable" (selectedChange)="SwitchToPrevious()" [selected]="isPrevious">Previous</button>
+        <button kendoButton [toggleable]="toggleable" (selectedChange)="switchToCurrent()"  [selected]="isCurrent">Current</button>
+        <button kendoButton [toggleable]="toggleable" (selectedChange)="switchToPrevious()" [selected]="isPrevious">Previous</button>
       </kendo-buttongroup>
     </p>
   </div>
@@ -48,24 +53,24 @@
     </tr>
   </thead>
   <tbody *ngIf="isCurrent">
-    <tr><td class="left-do">Sun</td><td class="right-do">{{ do.cursunqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.cursunod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.cursunpd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.cursunsd | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><td class="left-do">Mon</td><td class="right-do">{{ do.curmonqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.curmonod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.curmonpd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.curmonsd | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><td class="left-do">Tue</td><td class="right-do">{{ do.curtueqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.curtueod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.curtuepd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.curtuesd | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><td class="left-do">Wed</td><td class="right-do">{{ do.curwedqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.curwedod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.curwedpd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.curwedsd | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><td class="left-do">Thu</td><td class="right-do">{{ do.curthuqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.curthuod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.curthupd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.curthusd | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><td class="left-do">Fri</td><td class="right-do">{{ do.curfriqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.curfriod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.curfripd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.curfrisd | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><td class="left-do">Sat</td><td class="right-do">{{ do.cursatqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.cursatod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.cursatpd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.cursatsd | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><th class="left-do">Tot</th><th class="right-do">{{ do.curtotqd | currency:'USD':'symbol':'1.0' }}</th><th class="right-do">{{ do.curtotod | currency:'USD':'symbol':'1.0' }}</th><th class="right-do">{{ do.curtotpd | currency:'USD':'symbol':'1.0' }}</th><th class="right-do">{{ do.curtotsd | currency:'USD':'symbol':'1.0' }}</th></tr>
+    <tr><td class="left-do">Sun</td><td class="right-do">{{ !do.cursunqd ? "" : do.cursunqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.cursunod ? "" : do.cursunod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.cursunpd ? "" : do.cursunpd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.cursunsd ? "" : do.cursunsd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td class="left-do">Mon</td><td class="right-do">{{ !do.curmonqd ? "" : do.curmonqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.curmonod ? "" : do.curmonod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.curmonpd ? "" : do.curmonpd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.curmonsd ? "" : do.curmonsd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td class="left-do">Tue</td><td class="right-do">{{ !do.curtueqd ? "" : do.curtueqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.curtueod ? "" : do.curtueod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.curtuepd ? "" : do.curtuepd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.curtuesd ? "" : do.curtuesd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td class="left-do">Wed</td><td class="right-do">{{ !do.curwedqd ? "" : do.curwedqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.curwedod ? "" : do.curwedod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.curwedpd ? "" : do.curwedpd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.curwedsd ? "" : do.curwedsd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td class="left-do">Thu</td><td class="right-do">{{ !do.curthuqd ? "" : do.curthuqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.curthuod ? "" : do.curthuod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.curthupd ? "" : do.curthupd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.curthusd ? "" : do.curthusd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td class="left-do">Fri</td><td class="right-do">{{ !do.curfriqd ? "" : do.curfriqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.curfriod ? "" : do.curfriod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.curfripd ? "" : do.curfripd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.curfrisd ? "" : do.curfrisd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td class="left-do">Sat</td><td class="right-do">{{ !do.cursatqd ? "" : do.cursatqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.cursatod ? "" : do.cursatod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.cursatpd ? "" : do.cursatpd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.cursatsd ? "" : do.cursatsd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><th class="left-do">Tot</th><th class="right-do">{{ !do.curtotqd ? "" : do.curtotqd | currency:'USD':'symbol':'1.0' }}</th><th class="right-do">{{ !do.curtotod ? "" : do.curtotod | currency:'USD':'symbol':'1.0' }}</th><th class="right-do">{{ !do.curtotpd ? "" : do.curtotpd | currency:'USD':'symbol':'1.0' }}</th><th class="right-do">{{ !do.curtotsd ? "" : do.curtotsd | currency:'USD':'symbol':'1.0' }}</th></tr>
   </tbody>
   <tbody *ngIf="isPrevious">
-    <tr><td class="left-do">Sun</td><td class="right-do">{{ do.presunqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.presunod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.presunpd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.presunsd | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><td class="left-do">Mon</td><td class="right-do">{{ do.premonqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.premonod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.premonpd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.premonsd | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><td class="left-do">Tue</td><td class="right-do">{{ do.pretueqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.pretueod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.pretuepd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.pretuesd | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><td class="left-do">Wed</td><td class="right-do">{{ do.prewedqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.prewedod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.prewedpd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.prewedsd | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><td class="left-do">Thu</td><td class="right-do">{{ do.prethuqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.prethuod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.prethupd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.prethusd | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><td class="left-do">Fri</td><td class="right-do">{{ do.prefriqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.prefriod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.prefripd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.prefrisd | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><td class="left-do">Sat</td><td class="right-do">{{ do.presatqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.presatod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.presatpd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ do.presatsd | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><th class="left-do">Tot</th><th class="right-do">{{ do.pretotqd | currency:'USD':'symbol':'1.0' }}</th><th class="right-do">{{ do.pretotod | currency:'USD':'symbol':'1.0' }}</th><th class="right-do">{{ do.pretotpd | currency:'USD':'symbol':'1.0' }}</th><th class="right-do">{{ do.pretotsd | currency:'USD':'symbol':'1.0' }}</th></tr>
+    <tr><td class="left-do">Sun</td><td class="right-do">{{ !do.presunqd ? "" : do.presunqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.presunod ? "" : do.presunod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.presunpd ? "" : do.presunpd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.presunsd ? "" : do.presunsd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td class="left-do">Mon</td><td class="right-do">{{ !do.premonqd ? "" : do.premonqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.premonod ? "" : do.premonod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.premonpd ? "" : do.premonpd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.premonsd ? "" : do.premonsd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td class="left-do">Tue</td><td class="right-do">{{ !do.pretueqd ? "" : do.pretueqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.pretueod ? "" : do.pretueod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.pretuepd ? "" : do.pretuepd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.pretuesd ? "" : do.pretuesd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td class="left-do">Wed</td><td class="right-do">{{ !do.prewedqd ? "" : do.prewedqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.prewedod ? "" : do.prewedod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.prewedpd ? "" : do.prewedpd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.prewedsd ? "" : do.prewedsd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td class="left-do">Thu</td><td class="right-do">{{ !do.prethuqd ? "" : do.prethuqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.prethuod ? "" : do.prethuod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.prethupd ? "" : do.prethupd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.prethusd ? "" : do.prethusd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td class="left-do">Fri</td><td class="right-do">{{ !do.prefriqd ? "" : do.prefriqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.prefriod ? "" : do.prefriod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.prefripd ? "" : do.prefripd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.prefrisd ? "" : do.prefrisd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td class="left-do">Sat</td><td class="right-do">{{ !do.presatqd ? "" : do.presatqd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.presatod ? "" : do.presatod | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.presatpd ? "" : do.presatpd | currency:'USD':'symbol':'1.0' }}</td><td class="right-do">{{ !do.presatsd ? "" : do.presatsd | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><th class="left-do">Tot</th><th class="right-do">{{ !do.pretotqd ? "" : do.pretotqd | currency:'USD':'symbol':'1.0' }}</th><th class="right-do">{{ !do.pretotod ? "" : do.pretotod | currency:'USD':'symbol':'1.0' }}</th><th class="right-do">{{ !do.pretotpd ? "" : do.pretotpd | currency:'USD':'symbol':'1.0' }}</th><th class="right-do">{{ !do.pretotsd ? "" : do.pretotsd | currency:'USD':'symbol':'1.0' }}</th></tr>
   </tbody>
 </table>
 
@@ -78,16 +83,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr><td class="left-bl">Unsched</td><td class="right-bl">{{ bl.bluqty | number:'1.0':'en-US' }}</td><td class="right-bl">{{ bl.bludol | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><td class="left-bl">PastDue</td><td class="right-bl">{{ bl.blpqty | number:'1.0':'en-US' }}</td><td class="right-bl">{{ bl.blpdol | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><td class="left-bl">{{ date1 | date: 'MM/dd/yyyy' }}</td><td class="right-bl">{{ bl.blcqty | number:'1.0':'en-US' }}</td><td class="right-bl">{{ bl.blcdol | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><td class="left-bl">{{ date2 | date: 'MM/dd/yyyy' }}</td><td class="right-bl">{{ bl.bl1qty | number:'1.0':'en-US' }}</td><td class="right-bl">{{ bl.bl1dol | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><td class="left-bl">{{ date3 | date: 'MM/dd/yyyy' }}</td><td class="right-bl">{{ bl.bl2qty | number:'1.0':'en-US' }}</td><td class="right-bl">{{ bl.bl2dol | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><td class="left-bl">{{ date4 | date: 'MM/dd/yyyy' }}</td><td class="right-bl">{{ bl.bl3qty | number:'1.0':'en-US' }}</td><td class="right-bl">{{ bl.bl3dol | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><td class="left-bl">{{ date5 | date: 'MM/dd/yyyy' }}</td><td class="right-bl">{{ bl.bl4qty | number:'1.0':'en-US' }}</td><td class="right-bl">{{ bl.bl4dol | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><td class="left-bl">{{ date6 | date: 'MM/dd/yyyy' }}</td><td class="right-bl">{{ bl.bl5qty | number:'1.0':'en-US' }}</td><td class="right-bl">{{ bl.bl5dol | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><td class="left-bl">{{ date7 | date: 'MM/dd/yyyy' }}</td><td class="right-bl">{{ bl.bl6qty | number:'1.0':'en-US' }}</td><td class="right-bl">{{ bl.bl6dol | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><td class="left-bl">Future</td><td class="right-bl">{{ bl.blfqty | number:'1.0':'en-US' }}</td><td class="right-bl">{{ bl.blfdol | currency:'USD':'symbol':'1.0' }}</td></tr>
-    <tr><th class="left-bl">Total</th><th class="right-bl">{{ bl.bltot | number:'1.0':'en-US' }}</th><th class="right-bl">{{ bl.bldol | currency:'USD':'symbol':'1.0' }}</th></tr>
+    <tr><td class="left-bl">Unsched                         </td><td class="right-bl">{{ !bl.bluqty ? "" : bl.bluqty | number:'1.0':'en-US' }}</td><td class="right-bl">{{ !bl.bludol ? "" : bl.bludol | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td class="left-bl">PastDue                         </td><td class="right-bl">{{ !bl.blpqty ? "" : bl.blpqty | number:'1.0':'en-US' }}</td><td class="right-bl">{{ !bl.blpdol ? "" : bl.blpdol | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td class="left-bl">{{ date1 | date: 'MM/dd/yyyy' }}</td><td class="right-bl">{{ !bl.blcqty ? "" : bl.blcqty | number:'1.0':'en-US' }}</td><td class="right-bl">{{ !bl.blcdol ? "" : bl.blcdol | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td class="left-bl">{{ date2 | date: 'MM/dd/yyyy' }}</td><td class="right-bl">{{ !bl.bl1qty ? "" : bl.bl1qty | number:'1.0':'en-US' }}</td><td class="right-bl">{{ !bl.bl1dol ? "" : bl.bl1dol | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td class="left-bl">{{ date3 | date: 'MM/dd/yyyy' }}</td><td class="right-bl">{{ !bl.bl2qty ? "" : bl.bl2qty | number:'1.0':'en-US' }}</td><td class="right-bl">{{ !bl.bl2dol ? "" : bl.bl2dol | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td class="left-bl">{{ date4 | date: 'MM/dd/yyyy' }}</td><td class="right-bl">{{ !bl.bl3qty ? "" : bl.bl3qty | number:'1.0':'en-US' }}</td><td class="right-bl">{{ !bl.bl3dol ? "" : bl.bl3dol | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td class="left-bl">{{ date5 | date: 'MM/dd/yyyy' }}</td><td class="right-bl">{{ !bl.bl4qty ? "" : bl.bl4qty | number:'1.0':'en-US' }}</td><td class="right-bl">{{ !bl.bl4dol ? "" : bl.bl4dol | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td class="left-bl">{{ date6 | date: 'MM/dd/yyyy' }}</td><td class="right-bl">{{ !bl.bl5qty ? "" : bl.bl5qty | number:'1.0':'en-US' }}</td><td class="right-bl">{{ !bl.bl5dol ? "" : bl.bl5dol | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td class="left-bl">{{ date7 | date: 'MM/dd/yyyy' }}</td><td class="right-bl">{{ !bl.bl6qty ? "" : bl.bl6qty | number:'1.0':'en-US' }}</td><td class="right-bl">{{ !bl.bl6dol ? "" : bl.bl6dol | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><td class="left-bl">Future                          </td><td class="right-bl">{{ !bl.blfqty ? "" : bl.blfqty | number:'1.0':'en-US' }}</td><td class="right-bl">{{ !bl.blfdol ? "" : bl.blfdol | currency:'USD':'symbol':'1.0' }}</td></tr>
+    <tr><th class="left-bl">Total                           </th><th class="right-bl">{{ !bl.bltot  ? "" : bl.bltot  | number:'1.0':'en-US' }}</th><th class="right-bl">{{ !bl.bldol  ? "" : bl.bldol  | currency:'USD':'symbol':'1.0' }}</th></tr>
   </tbody>
 </table>

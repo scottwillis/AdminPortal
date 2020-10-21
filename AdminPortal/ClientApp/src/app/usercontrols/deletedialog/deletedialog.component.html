@@ -1,0 +1,7 @@
+<kendo-dialog title="Please confirm" *ngIf="deleteDialogOpened" (close)="closeDeleteDialog('cancel')">
+  <p style="margin: 30px; text-align: center;">Are you sure you want to delete?<br/>{{deleteType}}: <strong>{{deleteTypeName}}</strong></p>
+  <kendo-dialog-actions>
+    <button kendoButton (click)="closeDeleteDialog('no')" primary="true">No</button>
+    <button kendoButton (click)="closeDeleteDialog('yes')">Yes</button>
+  </kendo-dialog-actions>
+</kendo-dialog>

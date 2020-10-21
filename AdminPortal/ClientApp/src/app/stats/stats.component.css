@@ -92,6 +92,16 @@ table td.right-bl {
   margin-left: 15px;
 }
 
+.update-button {
+  --margin: 0;
+  --padding: 0;
+  --padding-top: 0px;
+  --padding-bottom: 12px;
+  --margin-left: 0;
+  --margin-right: 0;
+  margin-bottom: 5px;
+}
+
 header {
   --border-bottom: 1px solid #000;
 }

@@ -157,6 +157,18 @@ namespace AdminPortal.Controllers {
 			return items;
 		}
 
+		[HttpGet("GetAgencyOrders")]
+		//public IList<hord> GetAgencyOrders(int agency, string startDate, string endDate, string searchText, string csr) {
+		public IList<hord> GetAgencyOrders() {
+			var agency = 948;
+			var startDate = DateTime.Today.AddDays(-2);
+			var endDate = DateTime.Today;
+			var searchText = "";
+			var csr = "";
+			var orders = context.GetParentAgencyOpenInHouseSearchOrdersDuring(agency, startDate, endDate, searchText);
+			return orders;
+		}
+
 	}
 
 }
