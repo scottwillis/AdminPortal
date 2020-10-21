@@ -11,10 +11,11 @@ using Microsoft.Extensions.Logging;
 
 namespace AdminPortal {
 
-	public class Program {
+	public class Program 
+	{
 
 		public static void Main(string[] args) {
-			Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+			Encoding.RegisterProvider(CodePagesEncodingProvider.Instance); 
 			CreateHostBuilder(args).Build().Run();
 		}
 
