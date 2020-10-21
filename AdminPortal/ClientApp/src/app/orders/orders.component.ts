@@ -4,12 +4,12 @@ import { HttpClient } from '@angular/common/http';
 
 //import { fadeInOut } from '../../services/animations';
 
-import { GridDataResult, SelectionEvent } from '@progress/kendo-angular-grid';
-import { SortDescriptor, GroupDescriptor, State, process, orderBy, groupBy } from '@progress/kendo-data-query';
+//import { GridDataResult, SelectionEvent } from '@progress/kendo-angular-grid';
+//import { SortDescriptor, GroupDescriptor, State, process, orderBy, groupBy } from '@progress/kendo-data-query';
 
 import { hord } from '../models/hord.model';
 
-import { GridBaseComponent } from '../base/grid/grid-base.component';
+//import { GridBaseComponent } from '../base/grid/grid-base.component';
 
 @Component({
 	selector: 'orders',
