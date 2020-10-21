@@ -41,8 +41,6 @@ import { UploadModule } from '@progress/kendo-angular-upload';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { StatsComponent } from './stats/stats.component';
 import { OrdersComponent } from './orders/orders.component';
 
