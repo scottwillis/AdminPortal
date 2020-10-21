@@ -6,70 +6,62 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace AdminPortal
-{
-    public class Startup
-    {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+namespace AdminPortal {
 
-        public IConfiguration Configuration { get; }
+	public class Startup {
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllersWithViews();
-            // In production, the Angular files will be served from this directory
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = "ClientApp/dist";
-            });
-        }
+		public Startup(IConfiguration configuration) {
+			Configuration = configuration;
+		}
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
+		public IConfiguration Configuration { get; }
 
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
-            if (!env.IsDevelopment())
-            {
-                app.UseSpaStaticFiles();
-            }
+		// This method gets called by the runtime. Use this method to add services to the container.
+		public void ConfigureServices(IServiceCollection services) {
+			services.AddControllersWithViews();
+			// In production, the Angular files will be served from this directory
+			services.AddSpaStaticFiles(configuration => {
+				configuration.RootPath = "ClientApp/dist";
+			});
+		}
 
-            app.UseRouting();
+		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+		public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+			if (env.IsDevelopment()) {
+				app.UseDeveloperExceptionPage();
+			}
+			else {
+				app.UseExceptionHandler("/Error");
+				// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+				app.UseHsts();
+			}
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
-            });
+			app.UseHttpsRedirection();
+			app.UseStaticFiles();
+			if (!env.IsDevelopment()) {
+				app.UseSpaStaticFiles();
+			}
 
-            app.UseSpa(spa =>
-            {
-                // To learn more about options for serving an Angular SPA from ASP.NET Core,
-                // see https://go.microsoft.com/fwlink/?linkid=864501
+			app.UseRouting();
 
-                spa.Options.SourcePath = "ClientApp";
+			app.UseEndpoints(endpoints => {
+				endpoints.MapControllerRoute(
+					name: "default",
+					pattern: "{controller}/{action=Index}/{id?}");
+			});
 
-                if (env.IsDevelopment())
-                {
-                    spa.UseAngularCliServer(npmScript: "start");
-                }
-            });
-        }
-    }
+			app.UseSpa(spa => {
+				// To learn more about options for serving an Angular SPA from ASP.NET Core,
+				// see https://go.microsoft.com/fwlink/?linkid=864501
+
+				spa.Options.SourcePath = "ClientApp";
+
+				if (env.IsDevelopment()) {
+					spa.UseAngularCliServer(npmScript: "start");
+				}
+			});
+		}
+
+	}
+
 }
