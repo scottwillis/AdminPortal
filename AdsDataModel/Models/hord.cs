@@ -262,7 +262,7 @@ namespace AdsDataModel {
 		[MyCustom(AdsIgnore = true)]
 		public decimal? commission {
 			get {
-				if (_commission == 0) _commission = Details.Sum(x => x.Commission.GetValueOrDefault());
+				//if (_commission == 0) _commission = Details.Sum(x => x.Commission.GetValueOrDefault());
 				return _commission;
 			}
 			set => SetProperty(ref _commission, value);
@@ -365,7 +365,7 @@ namespace AdsDataModel {
 		[MyCustom(AdsIgnore = true)]
 		public decimal? vcamount {
 			get {
-				if (_vcamount == 0) _vcamount = Details.Sum(x => x.TotalOverage);
+				//if (_vcamount == 0) _vcamount = Details.Sum(x => x.TotalOverage);
 				return _vcamount;
 			}
 			set => SetProperty(ref _vcamount, value);
@@ -559,29 +559,29 @@ namespace AdsDataModel {
 		[Display(AutoGenerateField = false)]
 		public string SoldName { get; set; }
 
-		[MyCustom(AdsIgnore = true)]
-		[Display(AutoGenerateField = false)]
-		public hrep Agency { get; set; } = new hrep();
+		//[MyCustom(AdsIgnore = true)]
+		//[Display(AutoGenerateField = false)]
+		//public hrep Agency { get; set; } = new hrep();
 
-		[MyCustom(AdsIgnore = true)]
-		[Display(AutoGenerateField = false)]
-		public string AgencyNoName => Agency.salesno == 0 ? "" : $"{Agency.salesno} - {Agency.name}";
+		//[MyCustom(AdsIgnore = true)]
+		//[Display(AutoGenerateField = false)]
+		//public string AgencyNoName => Agency.salesno == 0 ? "" : $"{Agency.salesno} - {Agency.name}";
 
-		[MyCustom(AdsIgnore = true)]
-		[Display(AutoGenerateField = false)]
-		public IList<hdet> Details { get; set; } = new List<hdet>();
+		//[MyCustom(AdsIgnore = true)]
+		//[Display(AutoGenerateField = false)]
+		//public IList<hdet> Details { get; set; } = new List<hdet>();
 
-		[MyCustom(AdsIgnore = true)]
-		[Display(AutoGenerateField = false)]
-		public IList<hpronum> ProNums { get; set; } = new List<hpronum>();
+		//[MyCustom(AdsIgnore = true)]
+		//[Display(AutoGenerateField = false)]
+		//public IList<hpronum> ProNums { get; set; } = new List<hpronum>();
 
-		[MyCustom(AdsIgnore = true)]
-		[Display(AutoGenerateField = false)]
-		public IList<hcomment> Comments { get; set; } = new List<hcomment>();
+		//[MyCustom(AdsIgnore = true)]
+		//[Display(AutoGenerateField = false)]
+		//public IList<hcomment> Comments { get; set; } = new List<hcomment>();
 
-		[MyCustom(AdsIgnore = true)]
-		[Display(AutoGenerateField = false)]
-		public string FirstProNum => ProNums.FirstOrDefault()?.pronum;
+		//[MyCustom(AdsIgnore = true)]
+		//[Display(AutoGenerateField = false)]
+		//public string FirstProNum => ProNums.FirstOrDefault()?.pronum;
 
 		[MyCustom(AdsIgnore = true)]
 		[Display(AutoGenerateField = false)]
@@ -793,32 +793,32 @@ namespace AdsDataModel {
 		[Display(AutoGenerateField = false)]
 		public string CallAheadWords => $"{call}{CallAheadAtWord}{call_phone}{CallAheadWithinWord}{hrs_before}";
 
-		[MyCustom(AdsIgnore = true)]
-		public string Comment1 => Comments.Any() ? $"{Comments[0].date:d} {Comments[0].user} {Comments[0].comment}" : "";
+		//[MyCustom(AdsIgnore = true)]
+		//public string Comment1 => Comments.Any() ? $"{Comments[0].date:d} {Comments[0].user} {Comments[0].comment}" : "";
 
-		[MyCustom(AdsIgnore = true)]
-		public string Comment2 => Comments.Count > 1 ? $"{Comments[1].date:d} {Comments[1].user} {Comments[1].comment}" : "";
+		//[MyCustom(AdsIgnore = true)]
+		//public string Comment2 => Comments.Count > 1 ? $"{Comments[1].date:d} {Comments[1].user} {Comments[1].comment}" : "";
 
-		[MyCustom(AdsIgnore = true)]
-		public string Comment3 => Comments.Count > 2 ? $"{Comments[2].date:d} {Comments[2].user} {Comments[2].comment}" : "";
+		//[MyCustom(AdsIgnore = true)]
+		//public string Comment3 => Comments.Count > 2 ? $"{Comments[2].date:d} {Comments[2].user} {Comments[2].comment}" : "";
 
-		[MyCustom(AdsIgnore = true)]
-		public string Comment4 => Comments.Count > 3 ? $"{Comments[3].date:d} {Comments[3].user} {Comments[3].comment}" : "";
+		//[MyCustom(AdsIgnore = true)]
+		//public string Comment4 => Comments.Count > 3 ? $"{Comments[3].date:d} {Comments[3].user} {Comments[3].comment}" : "";
 
-		[MyCustom(AdsIgnore = true)]
-		public string Comment5 => Comments.Count > 4 ? $"{Comments[4].date:d} {Comments[4].user} {Comments[4].comment}" : "";
+		//[MyCustom(AdsIgnore = true)]
+		//public string Comment5 => Comments.Count > 4 ? $"{Comments[4].date:d} {Comments[4].user} {Comments[4].comment}" : "";
 
-		[MyCustom(AdsIgnore = true)]
-		public string Comment6 => Comments.Count > 5 ? $"{Comments[5].date:d} {Comments[5].user} {Comments[5].comment}" : "";
+		//[MyCustom(AdsIgnore = true)]
+		//public string Comment6 => Comments.Count > 5 ? $"{Comments[5].date:d} {Comments[5].user} {Comments[5].comment}" : "";
 
-		[MyCustom(AdsIgnore = true)]
-		public string Comment7 => Comments.Count > 6 ? $"{Comments[6].date:d} {Comments[6].user} {Comments[6].comment}" : "";
+		//[MyCustom(AdsIgnore = true)]
+		//public string Comment7 => Comments.Count > 6 ? $"{Comments[6].date:d} {Comments[6].user} {Comments[6].comment}" : "";
 
-		[MyCustom(AdsIgnore = true)]
-		public string Comment8 => Comments.Count > 7 ? $"{Comments[7].date:d} {Comments[7].user} {Comments[7].comment}" : "";
+		//[MyCustom(AdsIgnore = true)]
+		//public string Comment8 => Comments.Count > 7 ? $"{Comments[7].date:d} {Comments[7].user} {Comments[7].comment}" : "";
 
-		[MyCustom(AdsIgnore = true)]
-		public string Comment9 => Comments.Count > 8 ? $"{Comments[8].date:d} {Comments[8].user} {Comments[8].comment}" : "";
+		//[MyCustom(AdsIgnore = true)]
+		//public string Comment9 => Comments.Count > 8 ? $"{Comments[8].date:d} {Comments[8].user} {Comments[8].comment}" : "";
 
 		[MyCustom(AdsIgnore = true)]
 		[Display(AutoGenerateField = false)]
@@ -1183,22 +1183,22 @@ namespace AdsDataModel {
 			var pronums = GetOrderPronums(ord.orderno);
 			var det = GetOrderDetails(ord.orderno);
 			var comments = GetOrderComments2(ord.orderno);
-			ord.Customer = cust;
-			ord.ProNums = pronums;
-			ord.Details = det;
-			ord.Comments = comments;
+			//ord.Customer = cust;
+			//ord.ProNums = pronums;
+			//ord.Details = det;
+			//ord.Comments = comments;
 			var totalCartons = 0;
 			decimal totalWeight = 0;
-			foreach (var hdet in ord.Details) {
-				hdet.hord = ord;
-				if (hdet.itemno.StartsWith("90")) {
-					var finv = GetFinishedInventory(hdet.itemno, hdet.pack, false);
-					//hdet.Finished = finv;
-					hdet.Gdesc = finv?.gdesc;
-				}
-				totalCartons += hdet.NoCarton;
-				totalWeight += hdet.Weight;
-			}
+			//foreach (var hdet in ord.Details) {
+			//	hdet.hord = ord;
+			//	if (hdet.itemno.StartsWith("90")) {
+			//		var finv = GetFinishedInventory(hdet.itemno, hdet.pack, false);
+			//		//hdet.Finished = finv;
+			//		hdet.Gdesc = finv?.gdesc;
+			//	}
+			//	totalCartons += hdet.NoCarton;
+			//	totalWeight += hdet.Weight;
+			//}
 			ord.Weight = Convert.ToInt32(totalWeight);
 			ord.Cartons = totalCartons;
 			if (agencyNo > 0) {
@@ -1278,8 +1278,8 @@ namespace AdsDataModel {
 			if (string.IsNullOrEmpty(searchText)) {
 				var openOrders = GetParentAgencyOpenOrdersDuring(parentNo, start, end);
 				entities.AddRange(openOrders);
-				var inhouseOrders = GetParentAgencyInHouseOrdersDuring(parentNo, start, end);
-				entities.AddRange(inhouseOrders);
+				//var inhouseOrders = GetParentAgencyInHouseOrdersDuring(parentNo, start, end);
+				//entities.AddRange(inhouseOrders);
 			}
 			else {
 				var searchOrders = GetParentAgencySearchOrdersDuring(parentNo, start, end, searchText);
@@ -1290,6 +1290,30 @@ namespace AdsDataModel {
 		}
 
 		public IList<hord> GetParentAgencyOpenOrdersDuring(int parentNo, DateTime start, DateTime end) {
+			var qTime = DateTime.Now;
+			var parentQry = CheckParentAgency(parentNo);
+			var entities = new List<hord>();
+			Conn.Open();
+			var cmd = Conn.CreateCommand();
+			var sql = $"select * from hord where empty(invdate){parentQry}";
+			cmd.CommandText = sql;
+			var reader = cmd.ExecuteReader();
+			while (reader.Read()) {
+				var ordtype = reader.ReadString("ordtype");
+				var status = reader.ReadString("status");
+				if ("9C".Contains(status)) continue;
+				if (!"SCTB".Contains(ordtype)) continue;
+				var entity = new hord();
+				entity.FillFromReader(reader);
+				entities.Add(entity);
+			}
+			reader.Close();
+			Conn.Close();
+			QueryDebugEnd(qTime, $"GetParentAgencyOpenOrdersDuring - {sql}");
+			return entities;
+		}
+
+		public IList<hord> GetParentAgencyOpenOrdersDuring2(int parentNo, DateTime start, DateTime end) {
 			var qTime = DateTime.Now;
 			var parentQry = CheckParentAgency(parentNo);
 			var entities = new List<hord>();
@@ -1500,8 +1524,9 @@ namespace AdsDataModel {
 			reader.Close();
 			Conn.Close();
 			if (order != null) {
-				order.Customer = GetCustomer(order.custno);
-				order.Details = GetOrderDetails(order.orderno);
+				//order.Customer = GetCustomer(order.custno);
+				//order.Details = GetOrderDetails(order.orderno);
+				
 				//order.Agency = GetAgency(order.sale1.GetValueOrDefault());
 				//order.ProNums = GetOrderPronums(agencyNo);
 				//order.ProNum = order.ProNums.Any() ? order.ProNums.First().pronum : "";

@@ -1,4 +1,7 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<header class="pageHeader">
+  <h3><i class="fa fa-shopping-cart fa-lg page-caption" aria-hidden="true"></i>&nbsp;Business Statistics</h3>
+</header>
 
 <header>
   <h1 id="tableLabel">Business Statistics</h1>
@@ -25,7 +28,7 @@
       <kendo-buttongroup look="outline" [selection]="'single'">
         <button kendoButton [toggleable]="toggleable" (selectedChange)="switchToWilliams()" [selected]="isWilliams">Williams</button>
         <button kendoButton [toggleable]="toggleable" (selectedChange)="switchToInfinity()" [selected]="isInfinity">Infinity</button>
-        <button kendoButton [toggleable]="toggleable" (selectedChange)="switchToOutdoor()"  [selected]="isOutdoor">Outdoor</button>
+        <button kendoButton [toggleable]="toggleable" (selectedChange)="switchToOutdoor()" [selected]="isOutdoor">Outdoor</button>
         <button kendoButton [toggleable]="toggleable" (selectedChange)="switchToCombined()" [selected]="isCombined">Combined</button>
       </kendo-buttongroup>
     </p>
@@ -34,7 +37,7 @@
   <div class="menu-buttons" *ngIf="isDo">
     <p>
       <kendo-buttongroup look="outline" [selection]="'single'">
-        <button kendoButton [toggleable]="toggleable" (selectedChange)="switchToCurrent()"  [selected]="isCurrent">Current</button>
+        <button kendoButton [toggleable]="toggleable" (selectedChange)="switchToCurrent()" [selected]="isCurrent">Current</button>
         <button kendoButton [toggleable]="toggleable" (selectedChange)="switchToPrevious()" [selected]="isPrevious">Previous</button>
       </kendo-buttongroup>
     </p>

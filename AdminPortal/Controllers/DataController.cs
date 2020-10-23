@@ -20,10 +20,6 @@ namespace AdminPortal.Controllers {
 
 		private readonly FoxProDataContext context = new FoxProDataContext();
 
-		//private static readonly string[] Summaries = new[] {
-		//	"Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-		//};
-
 		private readonly ILogger<DataController> _logger;
 
 		public DataController(ILogger<DataController> logger) {

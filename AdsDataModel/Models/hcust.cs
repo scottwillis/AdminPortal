@@ -350,29 +350,29 @@ namespace AdsDataModel {
 		[MyCustom(AdsIgnore = true)]
 		public string NoNameCitySt => $"{custno} - {name} - {city}, {state}";
 
-		[Display(AutoGenerateField = false)]
-		[MyCustom(AdsIgnore = true)]
-		public bool Rebate { get => rebate == "Y"; set => rebate = value ? "Y" : "N"; }
+		//[Display(AutoGenerateField = false)]
+		//[MyCustom(AdsIgnore = true)]
+		//public bool Rebate { get => rebate == "Y"; set => rebate = value ? "Y" : "N"; }
 
-		[Display(AutoGenerateField = false)]
-		[MyCustom(AdsIgnore = true)]
-		public bool Stocking { get => stocking == "Y"; set => stocking = value ? "Y" : "N"; }
+		//[Display(AutoGenerateField = false)]
+		//[MyCustom(AdsIgnore = true)]
+		//public bool Stocking { get => stocking == "Y"; set => stocking = value ? "Y" : "N"; }
 
-		[Display(AutoGenerateField = false)]
-		[MyCustom(AdsIgnore = true)]
-		public bool PuCredit { get => pucredit == "Y"; set => pucredit = value ? "Y" : "N"; }
+		//[Display(AutoGenerateField = false)]
+		//[MyCustom(AdsIgnore = true)]
+		//public bool PuCredit { get => pucredit == "Y"; set => pucredit = value ? "Y" : "N"; }
 
-		[Display(AutoGenerateField = false)]
-		[MyCustom(AdsIgnore = true)]
-		public bool CallInfo { get => callinfo == "Y"; set => callinfo = value ? "Y" : "N"; }
+		//[Display(AutoGenerateField = false)]
+		//[MyCustom(AdsIgnore = true)]
+		//public bool CallInfo { get => callinfo == "Y"; set => callinfo = value ? "Y" : "N"; }
 
-		[Display(AutoGenerateField = false)]
-		[MyCustom(AdsIgnore = true)]
-		public bool OemLabel { get => oemlabel == "Y"; set => oemlabel = value ? "Y" : "N"; }
+		//[Display(AutoGenerateField = false)]
+		//[MyCustom(AdsIgnore = true)]
+		//public bool OemLabel { get => oemlabel == "Y"; set => oemlabel = value ? "Y" : "N"; }
 
-		[Display(AutoGenerateField = false)]
-		[MyCustom(AdsIgnore = true)]
-		public bool OemBl { get => oembl == "Y"; set => oembl = value ? "Y" : "N"; }
+		//[Display(AutoGenerateField = false)]
+		//[MyCustom(AdsIgnore = true)]
+		//public bool OemBl { get => oembl == "Y"; set => oembl = value ? "Y" : "N"; }
 
 		[Display(AutoGenerateField = false)]
 		[MyCustom(AdsIgnore = true)]

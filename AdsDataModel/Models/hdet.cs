@@ -271,8 +271,8 @@ namespace AdsDataModel {
 		[MyCustom(AdsIgnore = true)]
 		public decimal ExtPrice => (ShipQty > 0 ? ShipQty : qty.GetValueOrDefault()) * price.GetValueOrDefault();
 
-		[MyCustom(AdsIgnore = true)]
-		public bool Overage => price.GetValueOrDefault() > cprice.GetValueOrDefault() && price.GetValueOrDefault() != 0 && cprice.GetValueOrDefault() != 0;
+		//[MyCustom(AdsIgnore = true)]
+		//public bool Overage => price.GetValueOrDefault() > cprice.GetValueOrDefault() && price.GetValueOrDefault() != 0 && cprice.GetValueOrDefault() != 0;
 
 		[MyCustom(AdsIgnore = true)]
 		public decimal TotalOverage => Commissions.GetOverage(price.GetValueOrDefault(), cprice.GetValueOrDefault(), qty.GetValueOrDefault(), hord?.comper.GetValueOrDefault() ?? 0);

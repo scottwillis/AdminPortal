@@ -34,8 +34,8 @@ export class OrdersComponent {
 
 	loadData() {
 		this.http.get<hord[]>(this.baseUrl + 'data/GetAgencyOrders').subscribe(result => {
-			this.entities = result;
-		}, error => console.error(error));
+      this.entities = result;
+    }, error => console.error(error));
 	}
 
 }
